@@ -136,23 +136,33 @@ include ("layout/nav.php");
         </div>
         </div>
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
-
+          <section class="content">
+          <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+          
+            <div class="card">
+              <div class="card-header">
+              <h1 style="text-align:center">Gobernar es servir</h1>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <div align="center"><img src = "../img/muni11-copia.jpg" alt = "texto descriptivo" align="center"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
           
 
           
           </section>
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-            <!-- Map card -->
-           
-
-            
-                              
-           
-          </section>
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
