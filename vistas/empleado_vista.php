@@ -223,7 +223,7 @@ include("layout/nav.php");
                 <div class="">
                  <h3>Datos Laborales</h3>
                  <hr style="width:75%; height:5px; 
-                 width: 170%;
+                 width: 30%;
                  display: inline-block;">
                 </div>
                 <div class="row">

@@ -26,6 +26,24 @@ class Planilla{
     public $nombre_cargop;
     public $id_dependenciap;
     public $nombre_dependenciap;
+    public $dietapp;
+    public $fechaingreso;
+    
+
+    //Empleado variables
+    public $dpip;
+    public $nitp;
+    public $fecha_nacimientop;
+    public $no_cuentap;
+    public $no_igssp;
+    public $no_expedientep;
+    public $forma_pagop;
+    public $telefonop;
+    public $id_municipiop;
+    public $nombre_municipiop;
+    public $id_renglonp;
+    public $nombre_renglonp;
+    public $nombredeparta;
 
 
     //-----------------------------------------//////////////////////////////---------------------------------------------------------------------
@@ -33,21 +51,21 @@ class Planilla{
 
 
     //id planilla
-    public function setidPlanill(){
+    public function getidPlanill(){
         return $this->idPlanilla;
     }
 
-    public function getidPlanill($idPlanilla_p){
+    public function setidPlanill($idPlanilla_p){
         $this->idPlanilla =  $idPlanilla_p;
     }
 
     //id empleado 
 
-    public function setidEmpleado(){
+    public function getidEmpleado(){
         return $this->idEmpleado;
     }
 
-    public function getidEmpleado($idEmpleado_p){
+    public function setidEmpleado($idEmpleado_p){
         $this->idEmpleado = $idEmpleado_p;
     }
 
@@ -62,11 +80,11 @@ class Planilla{
 
     //anio
 
-    public function setAnio(){
+    public function getAnio(){
         return $this->anio;
     }
 
-    public function getAnio($anio_p){
+    public function setAnio($anio_p){
         $this->anio =  $anio_p;
     }
 
@@ -161,38 +179,40 @@ class Planilla{
     }
 
     //ingreso total
-    public function setIngresot(){
+
+    public function getIngresot(){
         return $this->ingresotp;
     }
 
-    public function getIngresot($ingresotp_p){
+    public function setIngresot($ingresotp_p){
+     
         $this->ingresotp =  $ingresotp_p;
     }
 
     //total descuento
-    public function setTotali(){
+    public function getTotald(){
         return $this->totaldp;
     }
 
-    public function getTotali($totaldp_p){
+    public function setTotald($totaldp_p){
         $this->totaldp =  $totaldp_p;
     }
 
     //sueldo recibido
-    public function setSueldod(){
+    public function getSarioreci(){
         return $this->sueldor;
     }
 
-    public function getSueldod($sueldor_p){
+    public function setSarioreci($sueldor_p){
         $this->sueldor =  $sueldor_p;
     }
 
     //estado
-    public function setEstado(){
+    public function getEstado(){
         return $this->estado;
     }
 
-    public function getEstado($estado_p){
+    public function setEstado($estado_p){
         $this->estado =  $estado_p;
     }
    
@@ -211,7 +231,7 @@ class Planilla{
     }
 
     public function setApellidop($apellidop_p){
-        $this->apellidop = $apellido_p;
+        $this->apellidop = $apellidop_p;
     }
 
     //cargo
@@ -220,7 +240,7 @@ class Planilla{
     }
 
     public function  setidCargop($id_cargop_p){
-        $this->id_cargop = $id_cargo_p;
+        $this->id_cargop = $id_cargop_p;
     }
 
     public function getNombrecarp(){
@@ -248,6 +268,140 @@ class Planilla{
         $this->nombre_dependenciap = $nombre_dependenciap_p;
     }
 
+    public function getDietapp(){
+        return $this->dietapp;
+    }
+
+    public function setDietapp($dietapp_p){
+        
+        $this->dietapp  =  $dietapp_p;
+    }
+
+    
+
+    //-------------------------
+    //Empleado
+   
+    //Creacion metodo get y set dpi
+    public function getDpip(){
+        return $this->dpip;
+    }
+
+    public function setDpip($dpi_ep){
+        $this->dpip = $dpi_ep;
+    }
+
+    //Creacion metodo get y set nit 
+    public function getNitp(){
+        return $this->nitp;
+    }
+
+    public function setNitp($nit_ep){
+        $this->nitp = $nit_ep;
+    }
+    ///creacion metodo get y set fecha fecha_nacimiento
+    public function getFecha_nacimientop(){
+        return $this->fecha_nacimientop;
+    }
+
+    public function  setFecha_nacimientop($fecha_nacimiento_ep){
+        $this->fecha_nacimientop = $fecha_nacimiento_ep;
+    }
+
+    //creacion de metodo get y set numero de no_cuenta
+    public function getNocuentap(){
+        return $this->no_cuentap;
+    }
+
+    public function  setNocuentap($no_cuenta_ep){
+        $this->no_cuentap = $no_cuenta_ep;
+    }
+
+    //creacion de metodo get y set numero de igss
+    public function getNoigssp(){
+        return $this->no_igssp;
+    }
+
+    public function  setNoigssp($no_igss_ep){
+        $this->no_igssp = $no_igss_ep;
+    }
+
+    //creacion metodo get y set numero de expediente
+    public function getNoexpedientep(){
+        return $this->no_expedientep;
+    }
+
+    public function  setNoexpedientep($no_expediente_ep){
+        $this->no_expedientep = $no_expediente_ep;
+    }
+
+    //creacion metodo get y set forma de pago
+    public function getFopagop(){
+        return $this->forma_pagop;
+    }
+
+    public function  setFopagop($forma_pago_ep){
+        $this->forma_pagop = $forma_pago_ep;
+    }
+
+    //creacion metodo get y set telefono
+    public function getTelefonop(){
+        return $this->telefonop;
+    }
+
+    public function setTelefonop($telefonop_p){
+        $this->telefonop = $telefonop_p;
+    }
+
+    public function getidMuncipiop(){
+        return $this->idmunicipiop;
+    }
+
+    public function  setidMuncipiop($idmunicipio_ep){
+        $this->idmunicipiop = $idmunicipio_ep;
+    }
+    
+    public function getNombremup(){
+        return $this->nombre_municipiop;
+    }
+
+    public function  setNombremup($nombre_municipio_ep){
+        $this->nombre_municipiop = $nombre_municipio_ep;
+    }
+
+    //creacion metodo get y set id y nombre renglon
+    public function getidRenglonp(){
+        return $this->id_renglonp;
+    }
+
+    public function  setidRenglonp($id_renglon_ep){
+        $this->id_renglonp = $id_renglon_ep;
+    }
+    
+    public function getNombrerep(){
+        return $this->nombre_renglonp;
+    }
+
+    public function  setNombrerep($nombre_renglon_ep){
+        $this->nombre_renglonp = $nombre_renglon_ep;
+    }
+
+    public function getFechaIngreso(){
+        return $this->fechaingreso;
+    }
+
+    public function setFechaIngreso($fechaingreso_p){
+        $this->fechaingreso =  $fechaingreso_p;
+    }
+
+    public function getNombreDept(){
+        return $this->nombredeparta;
+    }
+
+    public function setNombreDept($nombredep_p){
+        $this->nombredeparta =  $nombredep_p;
+    }
+
     //--------------------------------------------------------------//---------------------------------------------------------------------------------
     //Funcion guardar planilla en especifico-------------------------
     public function planillaEspecifico($idempleado,$mes,$anio,$salario,$bonificacion,$otros,$igss,$plan,$fianza,
@@ -271,7 +425,81 @@ class Planilla{
 
     }
 
+    public function nominaEmpleadoPlanilla($idempleado){
+
+        //Instanciamos la clase
+        $conexion = new Conexion();
+
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+
+        //definimos un array de tipo planilla
+        $datosPlanilla = new Planilla();
+
+        //se efectua la consulta sql
+        $sql = "select empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.telefono,empleado.id_municipio,
+        empleado.fecha_nacimiento,empleado.no_igss,empleado.no_cuenta,empleado.no_expediente,empleado.estado,
+        renglon.nombre,empleado.id_cargo,empleado.fecha_ingreso,empleado.forma_pago,municipio.nombre,departamento.nombre,cargo.nombre,dependencia.nombre,planilla.anio,planilla.mes,
+        planilla.salario_pago,planilla.bonificacion,planilla.otros,planilla.igss,planilla.plan,planilla.fianza,
+        planilla.judicial,planilla.timbre,planilla.dietas,planilla.salario_isr,planilla.isr_dieta,planilla.ingreso_total,
+        planilla.total_descuento,planilla.sueldo_recibido from empleado INNER JOIN planilla ON empleado.id_empleado = planilla.id_empleado INNER JOIN municipio ON municipio.id_municipio= empleado.id_municipio INNER JOIN cargo ON cargo.id_cargo = empleado.id_cargo INNER JOIN renglon ON renglon.id_renglon= empleado.id_renglon INNER JOIN departamento ON municipio.id_departamento = departamento.id_departamento INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia WHERE planilla.mes =(SELECT MAX(planilla.mes) from planilla) AND planilla.anio = (SELECT MAX(planilla.anio) from planilla) AND planilla.id_empleado ='".$idempleado."'";
+
+        //hacemos la consulta
+        $resultado = mysqli_query($conexion->db,$sql);
+
+        //reconrremos el resultado obtenido mediante un ciclo while
+
+        while($fila = mysqli_fetch_array($resultado)){
+
+            $datosPlanilla->setNombrep($fila[0]);
+            $datosPlanilla->setApellidop($fila[1]);
+            $datosPlanilla->setDpip($fila[2]);
+            $datosPlanilla->setNitp($fila[3]);
+            $datosPlanilla->setTelefonop($fila[4]);
+            $datosPlanilla->setidMuncipiop($fila[5]);
+            $datosPlanilla->setFecha_nacimientop($fila[6]);
+            $datosPlanilla->setNoigssp($fila[7]);
+            $datosPlanilla->setNocuentap($fila[8]);
+            $datosPlanilla->setNoexpedientep($fila[9]);
+            $datosPlanilla->setEstado($fila[10]);
+            $datosPlanilla->setidRenglonp($fila[11]);
+            $datosPlanilla->setidCargop($fila[12]);
+            $datosPlanilla->setFechaIngreso($fila[13]);
+            $datosPlanilla->setFopagop($fila[14]);
+            $datosPlanilla->setNombremup($fila[15]);
+            $datosPlanilla->setNombreDept($fila[16]);
+            $datosPlanilla->setNombrecarp($fila[17]);
+            $datosPlanilla->setNombredep($fila[18]);
+            $datosPlanilla->setMes($fila[19]);
+            $datosPlanilla->setAnio($fila[20]);
+            $datosPlanilla->setSalario($fila[21]);
+            $datosPlanilla->setBonip($fila[22]);
+            $datosPlanilla->setOtrosp($fila[23]);
+            $datosPlanilla->setIgssp($fila[24]);
+            $datosPlanilla->setPlanp($fila[25]);
+            $datosPlanilla->setFianzap($fila[26]);
+            $datosPlanilla->setJudicialp($fila[27]);
+            $datosPlanilla->setTimbrep($fila[28]);
+            $datosPlanilla->setDietapp($fila[29]);
+            $datosPlanilla->setSalario_isrp($fila[30]);
+            $datosPlanilla->setDieta_isrp($fila[31]);
+            $datosPlanilla->setIngresot($fila[32]);
+            $datosPlanilla->setTotald($fila[33]);
+            $datosPlanilla->setSarioreci($fila[34]);
+
+            
+
+        }
+
+        $conexion->desconectar();
+
+        return $datosPlanilla;
+
+    }
+
+    
 
 }
+
 
 ?>

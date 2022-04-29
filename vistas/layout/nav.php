@@ -130,7 +130,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="reparacion.php" class="nav-link">
+            <a href="nomina.php" class="nav-link">
               <i class="nav-icon fas fa-clipboard"></i>
               <p>
                 Nominas
