@@ -4,14 +4,12 @@ include("../clases/Empleado.php");
 include("../db/Conexion.php");
 
 $id = $_REQUEST['id'];
-date_default_timezone_set('America/Guatemala');
-$fecha = date('Y-m-d'); 
-$hora = time();
-$horaReal = date("H:i:s",$hora);
-
+$fecha = $_POST['fechamm'];
 $empleado = new Empleado();
+if(isset($_POST["btnDevolverE"])){
+
 $empleado->devolverEmpleado($id,$fecha);
 header("Location: ../vistas/empleado.php");
-
+}
 
 ?>
