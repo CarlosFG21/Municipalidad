@@ -114,7 +114,7 @@ include("layout/nav.php");
                         </a>"; 
                         }else{
                           //Imprimimo botón de reactivar
-                          echo"<a type='submit' class='btn btn-danger' id='btnReactivarEmpleado' href='../crud/devolverEmpleado.php?id=$id'>
+                          echo"<a type='submit' class='btn btn-danger'  href='' data-toggle='modal' data-target='#modaldevolverempleado$id'>
                         <i class='fa fa-share-square'></i>
                         </a>"; 
                         }
@@ -124,7 +124,8 @@ include("layout/nav.php");
 
                      echo "</tr>";
 
-                     include('modal_empleado_eliminar.php');  
+                     include('modal_empleado_eliminar.php'); 
+                     include('modal_devolver_empleado.php'); 
 
                     }
                   ?>
