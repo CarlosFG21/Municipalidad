@@ -109,7 +109,7 @@ include("layout/nav.php");
                       </a>"; 
 
                       if($estado==1){
-                        echo"<a type='submit' class='btn btn-success' id='btnEliminarEmpleado' href='../crud/eliminarEmpleado.php?id=$id'>
+                        echo"<a type='submit' class='btn btn-success'  href='' data-toggle='modal' data-target='#modaleliminarempleado$id'>
                         <i class='fas fa-trash'></i>
                         </a>"; 
                         }else{
@@ -123,6 +123,8 @@ include("layout/nav.php");
                         </a></td>";
 
                      echo "</tr>";
+
+                     include('modal_empleado_eliminar.php');  
 
                     }
                   ?>
@@ -141,6 +143,7 @@ include("layout/nav.php");
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
+                 
                   </tfoot>
                 </table>
               </div>
