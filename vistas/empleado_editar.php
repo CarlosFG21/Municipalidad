@@ -452,7 +452,7 @@ $conexion->conectar();
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Isr dietas</label>
+                        <label>Dietas</label>
                         <?php
                         echo "
                         <input type='text' class='form-control' placeholder='Isa dietas' minlength='3' maxlength='6' required value='$dietas' name='dietas' id='dietas' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";

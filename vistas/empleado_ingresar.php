@@ -116,14 +116,14 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Dpi</label>
-                        <input type="text" class="form-control" placeholder="Dpi" minlength="13" maxlength="13" required name="dpi" id="dpi" pattern="^[a-zA-Záéíóú0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Dpi" minlength="13" maxlength="13" required name="dpi" id="dpi" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Nit</label>
-                        <input type="text" class="form-control" placeholder="Nit" minlength="3" maxlength="9" required name="nit" id="nit" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Nit" minlength="3" maxlength="9" required name="nit" id="nit" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -266,21 +266,21 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Salario</label>
-                        <input type="text" class="form-control" placeholder="Salario" minlength="3" maxlength="6" name="salario" id="salario" pattern="^[a-zA-Záéíóú0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Salario" minlength="3" maxlength="6" name="salario" id="salario" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Bonificacion</label>
-                        <input type="text" class="form-control" placeholder="Bonificacion" minlength="3" maxlength="3" name="bonificacion" id="bonificacion" pattern="^[a-zA-Záéíóú0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Bonificacion" minlength="3" maxlength="3" name="bonificacion" id="bonificacion" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Otros</label>
-                        <input type="text" class="form-control" placeholder="Otros" minlength="3" maxlength="6"  name="otros" id="otros" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Otros" minlength="3" maxlength="6"  name="otros" id="otros" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -318,14 +318,14 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Isr salario</label>
-                        <input type="text" class="form-control" placeholder="Isr salario" minlength="3" maxlength="6"  name="isrsalario" id="isrsalario" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Isr salario" minlength="3" maxlength="6"  name="isrsalario" id="isrsalario" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Dietas</label>
-                        <input type="text" class="form-control" placeholder="Isa dietas" minlength="3" maxlength="6"  name="dietas" id="dietas" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Dietas" minlength="3" maxlength="6"  name="dietas" id="dietas" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                 </div> 

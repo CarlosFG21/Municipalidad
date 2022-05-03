@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <input type="submit" value="Eliminar" class="btn btn-danger" name="btnDevolverE" id="btnDevolverE">
+                        <input type="submit" value="Reactivar" class="btn btn-danger" name="btnDevolverE" id="btnDevolverE">
                         <button type="button" class="btn btn-primary" data-dismiss="modal" name="btnCancelarD" id="btnCancelarD">Cancelar</button>
                     </div>
                 </form>
