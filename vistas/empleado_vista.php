@@ -335,10 +335,6 @@ include("layout/nav.php");
                        <label class="form-check-label" for="inlineCheckbox2">Fianza</label>
                        </div>
                        <div class="form-check form-check-inline">
-                       <input class="form-check-input" type="checkbox" id="judicial" value="1" disabled <?php if($judicial==1){echo "checked='true'";}?>>
-                       <label class="form-check-label" for="inlineCheckbox2">Judicial</label>
-                       </div>
-                       <div class="form-check form-check-inline">
                        <input class="form-check-input" type="checkbox" id="isrdietas" value="1" disabled <?php if($isrdietad==1){echo "checked='true'";}?>>
                        <label class="form-check-label" for="inlineCheckbox2">Isr dietas</label>
                        </div>
@@ -346,6 +342,16 @@ include("layout/nav.php");
                        <input class="form-check-input" type="checkbox" id="timbre" value="1" disabled <?php if($timbre==1){echo "checked='true'";}?>>
                        <label class="form-check-label" for="inlineCheckbox2">Timbre</label>
                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Judicial</label>
+                        <?php
+                        echo "
+                        <input type='text' class='form-control' placeholder='$judicial' minlength='3' maxlength='9' required name='nit' id='nit' pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}' disabled>";
+                        ?>
                       </div>
                     </div>
                     <div class="col-sm-4">

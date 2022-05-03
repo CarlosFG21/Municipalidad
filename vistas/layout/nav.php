@@ -185,14 +185,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="usuario.php" class="nav-link" target="_blank">
-              <i class="nav-icon fas fa-atlas"></i>
-              <p>
-                Manual de usuario
-              </p>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

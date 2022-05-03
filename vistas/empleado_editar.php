@@ -426,10 +426,6 @@ $conexion->conectar();
                        <label class="form-check-label" for="inlineCheckbox2">Fianza</label>
                        </div>
                        <div class="form-check form-check-inline">
-                       <input class="form-check-input" type="checkbox" id="judicial" name="judicial" value="judicial" <?php if($judicial==1){echo "checked='true'";}?>>
-                       <label class="form-check-label" for="inlineCheckbox2">Judicial</label>
-                       </div>
-                       <div class="form-check form-check-inline">
                        <input class="form-check-input" type="checkbox" id="isrdietas" name="isrdietas" value="1" <?php if($isrdietad==1){echo "checked='true'";}?>>
                        <label class="form-check-label" for="inlineCheckbox2">Isr dietas</label>
                        </div>
@@ -438,6 +434,16 @@ $conexion->conectar();
                        <label class="form-check-label" for="inlineCheckbox2">Timbre</label>
                        </div>
                       </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Judicial</label>
+                        <?php
+                        echo "
+                        <input type='text' class='form-control' placeholder='Judicial' minlength='2' maxlength='6' required value='$judicial' name='judicial' id='judicial' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        ?>
+                        </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
