@@ -361,7 +361,7 @@ include("layout/nav.php");
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Isr dietas</label>
+                        <label>Dietas</label>
                         <?php
                         echo "
                         <input type='text' class='form-control' placeholder='$dietas' minlength='3' maxlength='9' required name='nit' id='nit' pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}' disabled>";
