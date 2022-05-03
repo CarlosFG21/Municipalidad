@@ -301,10 +301,6 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                        <label class="form-check-label" for="inlineCheckbox2">Fianza</label>
                        </div>
                        <div class="form-check form-check-inline">
-                       <input class="form-check-input" type="checkbox" id="judicial" name="judicial" value="judicial">
-                       <label class="form-check-label" for="inlineCheckbox2">Judicial</label>
-                       </div>
-                       <div class="form-check form-check-inline">
                        <input class="form-check-input" type="checkbox" id="isrdietas" name="isrdietas" value="isrdietas">
                        <label class="form-check-label" for="inlineCheckbox2">Isr dietas</label>
                        </div>
@@ -317,8 +313,15 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
+                        <label>Judicial</label>
+                        <input type="text" class="form-control" placeholder="Judicial" minlength="2" maxlength="6"  name="judicial" id="judicial" pattern="^[0-9]{1,30}">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
                         <label>Isr salario</label>
-                        <input type="text" class="form-control" placeholder="Isr salario" minlength="3" maxlength="6"  name="isrsalario" id="isrsalario" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Isr salario" minlength="2" maxlength="6"  name="isrsalario" id="isrsalario" pattern="^[0-9]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">

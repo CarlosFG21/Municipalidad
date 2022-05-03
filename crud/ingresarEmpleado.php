@@ -24,7 +24,7 @@ $boni =   $_POST['bonificacion'];
 $otros =   $_POST['otros'];
 $isrs =   $_POST['isrsalario'];
 $isrd =  $_POST['dietas'];
-
+$judicial = $_POST['judicial'];
 
 $igssd=0;
 if(isset($_POST['igsss'])){
@@ -47,10 +47,10 @@ if(isset($_POST['fianza'])){
 
 
 //-----------------------------
-$judicial =0;
+/*$judicial =0;
 if(isset($_POST['judicial'])){
     $judicial= 1;
-}
+}*/
 
 
 //---------------------------------
@@ -76,7 +76,7 @@ if(isset($_POST["btnGuardarEmpleado"])){
 
     if($empleado->validarEmpleado($nombre,$apellido,$nit,$dpi,$afigss,$cuentab,$expediente,$cargo)==0){
 
-    $empleado->guardarEmpleado($nombre,$apellido,$dpi,$nit,$fechn,$cuentab,$afigss,$expediente,$pago,$telefono,$salario,$otros,$boni,$isrs,$isrd,$fechai,$municipio,$renglon,$cargo,$idu,$igssd,$fianza,$judicial,$timbre,$plan,$isrdietasd);
+    $empleado->guardarEmpleado($nombre,$apellido,$dpi,$nit,$fechn,$cuentab,$afigss,$expediente,$pago,$telefono,$salario,$otros,$boni,$isrs,$isrd,$fechai,$municipio,$renglon,$cargo,$idu,$judicial,$igssd,$fianza,$timbre,$plan,$isrdietasd);
 
     header("Location: ../vistas/empleado.php");
 

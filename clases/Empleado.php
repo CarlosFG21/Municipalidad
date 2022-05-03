@@ -377,7 +377,7 @@ class Empleado{
    //Creacion funcion guardar empleado
 
    public function guardarEmpleado($nombre,$pellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
-   $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$idu,$igss,$fianza,$judicial,
+   $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$idu,$judicial,$igss,$fianza,
    $timbre,$plan,$isrdietasdd){
 
     //instanciamos la clase conexion
@@ -385,16 +385,16 @@ class Empleado{
     //nos conectamos a la base de datos mediante la funcion conectar
     $conexion->conectar();
     //efectuamos el codigo sql para la insercion de los datos del empleado
-    $sql_empleado = "insert into empleado(nombres,apellidos,dpi,nit,fecha_nacimiento,no_cuenta,no_igss,no_expediente,forma_pago,telefono,salario_base,otros,bonificacion,salario_isr,isr_dieta,fecha_ingreso,id_municipio,id_renglon,id_cargo,id_usuario) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql_empleado = "insert into empleado(nombres,apellidos,dpi,nit,fecha_nacimiento,no_cuenta,no_igss,no_expediente,forma_pago,telefono,salario_base,otros,bonificacion,salario_isr,isr_dieta,fecha_ingreso,id_municipio,id_renglon,id_cargo,id_usuario,judicial) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     //efecutamos el codigo sql para l insercion de los datos de descuentos obtenidos
-    $sql_descuento = "insert into descuento(igss,fianza,judicial,timbre,plan,id_empleado,id_usuario,isrdieta) values(?,?,?,?,?,?,?,?)";
+    $sql_descuento = "insert into descuento(igss,fianza,timbre,plan,id_empleado,id_usuario,isrdieta) values(?,?,?,?,?,?,?)";
 
     //preparamos la insercion de empleados
     $ejecutar_empleado = $conexion->db->prepare($sql_empleado);
     $ejecutar_descuento = $conexion->db->prepare($sql_descuento);
     //ingresamos la cantidad de caracteres de empleado
-    $ejecutar_empleado->bind_param('ssssssssssddddisiiii',$nombre,$pellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
-    $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$idu);
+    $ejecutar_empleado->bind_param('ssssssssssddddisiiiii',$nombre,$pellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
+    $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$idu,$judicial);
     $ejecutar_empleado->execute();
     //obtenemos el id del insert
     $lastid = mysqli_insert_id($conexion->db); 
@@ -405,7 +405,7 @@ class Empleado{
         $resultado = $lastid;
     }
     //ingresamos la cantidad de caracteres de descuentos
-    $ejecutar_descuento->bind_param('iiiiiiii',$igss,$fianza,$judicial,
+    $ejecutar_descuento->bind_param('iiiiiii',$igss,$fianza,
     $timbre,$plan,$resultado,$idu,$isrdietasdd);
 
     //ejecutamos el execute
@@ -428,7 +428,7 @@ class Empleado{
     //destinamos una variable de tipo array 
     $empleadoArray = array();
     //realizamos la consulta mediante codigo sql
-    $sql = "SELECT empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,descuento.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia";
+    $sql = "SELECT empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,empleado.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia";
     //realizamos la consulta mediante mysqli_query
     $resultado = mysqli_query($conexion->db,$sql);
     //recorremos la consulta mediante un ciclo while
@@ -493,7 +493,7 @@ class Empleado{
     //destinamos una variable de tipo array 
     $empleadoArray = array();
     //realizamos la consulta mediante codigo sql
-    $sql = "SELECT empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,descuento.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia WHERE empleado.estado=1";
+    $sql = "SELECT empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,empleado.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia WHERE empleado.estado=1";
     //realizamos la consulta mediante mysqli_query
     $resultado = mysqli_query($conexion->db,$sql);
     //recorremos la consulta mediante un ciclo while
@@ -557,7 +557,7 @@ class Empleado{
         //declaramos una variable de tipo clase empleado
         $empleadoArray = new Empleado();
         //realizamos la consulta sql mediante un select
-        $sql = "select empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,descuento.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre,descuento.isrdieta FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia WHERE empleado.id_empleado='".$id_empleado."'";
+        $sql = "select empleado.id_empleado,empleado.nombres,empleado.apellidos,empleado.dpi,empleado.nit,empleado.fecha_nacimiento,empleado.no_cuenta,empleado.no_igss,empleado.no_expediente,empleado.forma_pago,empleado.telefono,empleado.salario_base,empleado.otros,empleado.bonificacion,empleado.salario_isr,empleado.isr_dieta,empleado.estado,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.id_municipio,empleado.id_renglon,empleado.id_cargo,municipio.nombre,renglon.nombre,cargo.nombre,descuento.igss,descuento.fianza,empleado.judicial,descuento.timbre,descuento.plan,departamento.id_departamento,departamento.nombre,dependencia.id_dependencia,dependencia.nombre,descuento.isrdieta FROM empleado INNER JOIN municipio on empleado.id_municipio = municipio.id_municipio INNER JOIN renglon on empleado.id_renglon = renglon.id_renglon INNER JOIN cargo on empleado.id_cargo=cargo.id_cargo INNER JOIN descuento on empleado.id_empleado=descuento.id_empleado INNER JOIN departamento on departamento.id_departamento=municipio.id_departamento INNER JOIN dependencia on dependencia.id_dependencia=cargo.id_dependencia WHERE empleado.id_empleado='".$id_empleado."'";
         //efectuamos la consulta mediante la funcion mysqli_query
         $resultado = mysqli_query($conexion->db,$sql);
         //recorremos la consulta mediante un ciclo while
@@ -610,7 +610,7 @@ class Empleado{
    //------------------------------------///-----------------------------------------------------------------------------------
    //Funcion editar empleado
    public function editarEmpleado($nombre,$apellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
-   $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$igss,$fianza,$judicial,
+   $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$judicial,$igss,$fianza,
    $timbre,$plan,$isrdietasd,$idd){
 
     //instanciamos la clase conexion 
@@ -620,9 +620,9 @@ class Empleado{
     //realizamos la sentencia sql para editar los datos del empleado
     $sql_empleado = "update empleado set nombres=?, apellidos=?, dpi=?, nit=?, fecha_nacimiento=?, no_cuenta=?, no_igss=?,
     no_expediente=?, forma_pago=?, telefono=?, salario_base=?, otros=?, bonificacion=?, salario_isr=?, isr_dieta=?, fecha_ingreso=?,
-    id_municipio=?, id_renglon=?, id_cargo=? where id_empleado=?";
+    id_municipio=?, id_renglon=?, id_cargo=?, judicial=? where id_empleado=?";
     //realizamos la sentencia sql para editar los datos del descuento
-    $sql_descuento = "update descuento set igss=?, fianza=?, judicial=?, timbre=?, plan=?, isrdieta=? where id_descuento=?";
+    $sql_descuento = "update descuento set igss=?, fianza=?, timbre=?, plan=?, isrdieta=? where id_descuento=?";
     //preparamos las consultas
     //empleado
     $ejecutar_empleado = $conexion->db->prepare($sql_empleado);
@@ -630,10 +630,10 @@ class Empleado{
     $ejecutar_descuento = $conexion->db->prepare($sql_descuento);
     //insertamos la cantidad de parametros que llevara la consulta
     //empleado 
-    $ejecutar_empleado->bind_param('ssssssssssdddddsiiii',$nombre,$apellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
-    $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$idd);
+    $ejecutar_empleado->bind_param('ssssssssssdddddsiiidi',$nombre,$apellido,$dpi,$nit,$fechan,$cuenta,$noigss,$noexp,$pago,
+    $telefono,$salario,$otros,$boni,$sisr,$isrd,$fechai,$idm,$idr,$idc,$judicial,$idd);
     //descuento
-    $ejecutar_descuento->bind_param('iiiiiii',$igss,$fianza,$judicial,$timbre,$plan,$isrdietasd,$idd);
+    $ejecutar_descuento->bind_param('iiiiii',$igss,$fianza,$timbre,$plan,$isrdietasd,$idd);
     //realizamos el execute de ambos
     //empleado
     $ejecutar_empleado->execute();
