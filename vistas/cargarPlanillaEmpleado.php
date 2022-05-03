@@ -29,7 +29,6 @@ $isrdietad = $resultado->getIsrDietasd();
 $calculoi=0;
 $calculoplan=0;
 $calculof=0;
-$calculoj = 0;
 $calculot = 0;
 $calculod = 0;
 $ingresot= $salario + $boni + $otros + $dietas;
@@ -53,12 +52,6 @@ if($fianza == 1){
         $calculof  =0;
 }
 
-if($judicial == 1){
-    $calculoj = $salario * 0.011;
-    }else{
-        $calculoj   =0;
-}
-
 if($timbre == 1 && $isrdietad == 1){
     $calculot = $dietas * 0.013;
     }else{
@@ -71,7 +64,7 @@ if($isrdietad==1){
 
 }
 
-$totald= $calculoi + $calculoplan + $calculof + $calculoj + $calculot + $isr_s +  $calculod;
+$totald= $calculoi + $calculoplan + $calculof + $judicial + $calculot + $isr_s +  $calculod;
 $sueldor = $ingresot - $totald;
 
 if($sueldor < 0){
@@ -165,14 +158,11 @@ if($sueldor < 0){
                         <label>Judicial</label>
                         <?php 
                         //$calculoj = 0;
-                        if($judicial == 1){
+                        
                         //$calculoj = $salario * 0.011;
                         echo "
-                        <input type='text' class='form-control' value='$calculoj' minlength='4' maxlength='8' required name='judicial' id='judicial' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
-                        }else{
-                            echo "
-                            <input type='text' class='form-control'placeholder='0.00' minlength='4' maxlength='8' required name='' id='' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
-                        }
+                        <input type='text' class='form-control' value='$judicial' minlength='4' maxlength='8' required name='judicial' id='judicial' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
+                        
                         ?>
                       </div>
                     </div>
