@@ -147,6 +147,14 @@
           </li>
           <li class="nav-item">
             <a href="pago.php" class="nav-link">
+              <i class="nav-icon fab fa-paypal"></i>
+              <p>
+                Pagos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pago.php" class="nav-link">
               <i class="nav-icon fas fa-signal"></i>
               <p>
                 Reportes
