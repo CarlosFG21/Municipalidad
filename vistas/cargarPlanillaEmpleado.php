@@ -54,7 +54,7 @@ if($fianza == 1){
 
 if($timbre == 1 && $isrdietad == 1){
     $calculot = $dietas * 0.013;
-    }else{
+    }else if($timbre== 1){
         $calculot= $salario * 0.013;
 }
 

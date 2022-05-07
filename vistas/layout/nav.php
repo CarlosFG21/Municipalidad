@@ -70,6 +70,7 @@
         include("../clases/Empleado.php");
         include("../clases/Observacion.php");
         include("../clases/Planilla.php");
+        include("../clases/Pago.php");
         session_start();
 
         if(isset($_SESSION['usuario'])){
