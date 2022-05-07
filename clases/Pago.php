@@ -217,7 +217,78 @@ class Pago{
           //nos desconectamos de la base de datos
           $conexion->desconectar();
           return $arrayPagos; 
-     }     
+     } 
+     
+     //funcion buscar por empleado
+     public function MostrarporEmpleado($idempleado){
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //declaramos una variable de tipo array
+        $arrayPagos = array();
+        //efectuamos el sql para obtener los datos 
+        $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia where empleado.id_empleado='".$idempleado."'";
+        //realizamos la consulta del sql consultado
+        $resultado = mysqli_query($conexion->db,$sql);
+         //recorremos la consulta mediante un ciclo while
+         while($fila = mysqli_fetch_array($resultado)){
+             $arrayIndex = new Pago();
+
+             $arrayIndex->setIdpago($fila[0]);
+             $arrayIndex->setNombres($fila[1]);
+             $arrayIndex->setApellido($fila[2]);
+             $arrayIndex->setCargo($fila[3]);
+             $arrayIndex->setDependencia($fila[4]);
+             $arrayIndex->setMes($fila[5]);
+             $arrayIndex->setAnio($fila[6]);
+             $arrayIndex->setForma($fila[7]);
+             $arrayIndex->setDescripcion($fila[8]);
+             $arrayIndex->setEstado($fila[9]);
+
+             array_push($arrayPagos, $arrayIndex);
+         }
+
+         //nos desconectamos de la base de datos
+         $conexion->desconectar();
+         return $arrayPagos; 
+    }
+
+    //Funcion mostrar por dependencia
+    public function MostrarporDependencia($nombred){
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //declaramos una variable de tipo array
+        $arrayPagos = array();
+        //efectuamos el sql para obtener los datos 
+        $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia where dependencia.nombre='".$nombred."'";
+        //realizamos la consulta del sql consultado
+        $resultado = mysqli_query($conexion->db,$sql);
+         //recorremos la consulta mediante un ciclo while
+         while($fila = mysqli_fetch_array($resultado)){
+             $arrayIndex = new Pago();
+
+             $arrayIndex->setIdpago($fila[0]);
+             $arrayIndex->setNombres($fila[1]);
+             $arrayIndex->setApellido($fila[2]);
+             $arrayIndex->setCargo($fila[3]);
+             $arrayIndex->setDependencia($fila[4]);
+             $arrayIndex->setMes($fila[5]);
+             $arrayIndex->setAnio($fila[6]);
+             $arrayIndex->setForma($fila[7]);
+             $arrayIndex->setDescripcion($fila[8]);
+             $arrayIndex->setEstado($fila[9]);
+
+             array_push($arrayPagos, $arrayIndex);
+         }
+
+         //nos desconectamos de la base de datos
+         $conexion->desconectar();
+         return $arrayPagos; 
+    }
+
 }
 
 ?>

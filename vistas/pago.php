@@ -43,9 +43,22 @@ include('layout/nav.php');
                       <!-- text input -->
                       <div class="form-group">
                         <label>Buscar y seleccionar empleado</label>
-                        <select class="form-control selectCliente" id="lista2" name="lista2">
+                        <select class="form-control selectEmpleado" id="lista2" name="lista2">
                         <option value="0">Seleccionar empleado</option>
+                        <?php
+                         $datosEmpleado = new Empleado();
+                         $resultado =  $datosEmpleado->mostraEmpleados2();
+                         for($i=0; $i<sizeof($resultado); $i++){
+                             $idConsultado =  $resultado[$i]->getidEmpleado();
+                             $nombres = $resultado[$i]->getNombre();
+                             $apellidos = $resultado[$i]->getApellido();
+
+
+                             echo "<option value='$idConsultado'>". "". $nombres . " " . $apellidos . "". "</option>";
+
+                         }
                           
+                        ?>
                         </select>
                       </div>
                     </div>
@@ -55,8 +68,10 @@ include('layout/nav.php');
                       <div class="form-group">
                         <label>Filtro de búsqueda</label>
                         <select class="form-control" name="filtro" id="filtro">
-                          <option value="0">Por empleado</option>
-                          <option value="1">Dependencia</option>
+                          <option value="">Seleccionar un tipo de filtro</option>
+                          <option value="0">Todos los pagos</option>
+                          <option value="1">Por empleado</option>
+                          
                         </select>
                       </div>
                     </div>
@@ -65,11 +80,12 @@ include('layout/nav.php');
                     </div>     <!--aqui termina el row-->
                 <div class="">
                 <a type="submit" class="btn btn btn-success" href="pago_ingresar.php"> <i class="nav-icon fas fa-plus"> Ingresar pago</i></a>
-                  <input type="submit" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
+                  <input type="button" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
                 </div> 
 
               </div>
               <!-- /.card-header -->
+              <div id="tablaresultados">
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -143,6 +159,8 @@ include('layout/nav.php');
                   </tfoot>
                 </table>
               </div>
+              
+              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -161,5 +179,90 @@ include('layout/nav.php');
 include('layout/footer.php');
 
 ?>
+
+
+  <script>
+    $(function () {
+      //Initialize Select2 Elements
+      $('.selectEmpleado').select2()
+
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })
+    });
+
+    /*$( ".select2" ).change(function() {
+     //Aquí cargamos el usuario
+    });*/
+    </script>
+
+<script type="text/javascript">
+
+function mostrarTodos(){
+  $.ajax({
+        type:"POST",
+        url:"busqueda_pago_todos.php",
+        //data:"id="+ $ ('#lista1').val(),
+        success:function(r){
+            $('#tablaresultados').html(r);
+        }
+    
+    });
+}
+
+function filtrarPorEmpleado(){
+     
+    $.ajax({
+        type:"POST",
+        url:"busqueda_pago_empleado.php?id=" + $ ('#lista2').val() ,
+        //data:"id="+ $ ('#lista1').val(),
+        success:function(r){
+            $('#tablaresultados').html(r);
+        }
+    
+    });
+
+}
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+      
+        $('#btnBuscar').click(function(){
+        //Llamamos a la función
+        //alert("haz hecho click en el boton btnBuscar");
+        var idEmpleado = document.getElementById('lista2').value;
+        var filtro = document.getElementById('filtro').value;
+  
+       //------------Filtro todos------------------------------------------------------
+       if(filtro==0){
+         mostrarTodos();
+       }
+       //------------Filtro solo por cliente--------------------------
+      if(filtro==1){
+        
+        if(idEmpleado!=0){
+        
+          filtrarPorEmpleado();
+        
+        }else{
+          
+          alert('Debes seleccionar un empleado primero');
+          
+        }
+      }
+
+        });
+
+    });
+</script>
+
+
+
+
 
 
