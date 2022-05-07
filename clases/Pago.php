@@ -10,6 +10,17 @@ class Pago{
     public $fecha;
     public $estado;
 
+    //Pagos empleadoge
+    public  $nombres;
+    public  $apellidos;
+    public  $cargo;
+    public  $dependencia;
+
+    //planilla
+    public $mes;
+    public $anio;
+
+
     //----------------------------------------------------------------------------------------------------------------
     //Creacion de metodos get y set--------------------
     //forma
@@ -75,6 +86,59 @@ class Pago{
      public function setEstado($estado_p){
          $this->estado =  $estado_p;
      }
+     
+     //nombre empleado
+     public function getNombres(){
+         return $this->nombres;
+     }
+
+     public function setNombres($nombres_p){
+         $this->nombres =  $nombres_p;
+     }
+
+     //apellido empleado
+     public function getApellido(){
+         return $this->apellidos;
+     }
+
+     public function setApellido($apellidos_p){
+         $this->apellidos = $apellidos_p;
+     }
+
+     //cargo
+     public function getCargo(){
+         return $this->cargo;
+     }
+
+     public function setCargo($cargo_p){
+          $this->cargo  = $cargo_p;
+     }
+
+     //dependencia
+     public function getDependencia(){
+         return $this->dependencia;
+     }
+
+     public function setDependencia($dependencia_p){
+         $this->dependencia = $dependencia_p;
+     }
+
+     //planilla
+     public function getMes(){
+         return $this->mes;
+     }
+
+     public function setMes($mes_p){
+         $this->mes = $mes_p;
+     }
+
+     public function getAnio(){
+         return $this->anio;
+     }
+
+     public function setAnio($anio_p){
+        $this->anio =  $anio_p;
+     }
 
      //Funcion guardar pago
      public function Guardarpago($forma,$descripcion,$id_planilla,$id_usuario){
@@ -119,7 +183,41 @@ class Pago{
         return $estado;
 
      }
-     
+
+     //funcion mostrar pagos
+     public function MostrarPagos(){
+         //instanciamos la clase conexion
+         $conexion = new Conexion();
+         //nos conectamos a la base de datos mediante la funcion conectar
+         $conexion->conectar();
+         //declaramos una variable de tipo array
+         $arrayPagos = array();
+         //efectuamos el sql para obtener los datos 
+         $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia";
+         //realizamos la consulta del sql consultado
+         $resultado = mysqli_query($conexion->db,$sql);
+          //recorremos la consulta mediante un ciclo while
+          while($fila = mysqli_fetch_array($resultado)){
+              $arrayIndex = new Pago();
+
+              $arrayIndex->setIdpago($fila[0]);
+              $arrayIndex->setNombres($fila[1]);
+              $arrayIndex->setApellido($fila[2]);
+              $arrayIndex->setCargo($fila[3]);
+              $arrayIndex->setDependencia($fila[4]);
+              $arrayIndex->setMes($fila[5]);
+              $arrayIndex->setAnio($fila[6]);
+              $arrayIndex->setForma($fila[7]);
+              $arrayIndex->setDescripcion($fila[8]);
+              $arrayIndex->setEstado($fila[9]);
+
+              array_push($arrayPagos, $arrayIndex);
+          }
+
+          //nos desconectamos de la base de datos
+          $conexion->desconectar();
+          return $arrayPagos; 
+     }     
 }
 
 ?>
