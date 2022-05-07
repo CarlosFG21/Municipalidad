@@ -248,6 +248,27 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+$(function() {
+    $('#btnGuardarPago').click(function() {
+
+        var valid = this.form.checkValidity();
+        if (valid) {
+          //alert('!Efectuando Guardado!');
+   
+        } else {
+            alert('Debe de rellenar los campos o coincidir con el formato');
+        }
+
+        var nombre = $('#forma').val();
+        var apellido = $('#descripcion').val();
+        var id = $('#cbEmpleado').val();
+       
+    });
+
+});
+</script>
+
 
 
 
