@@ -42,9 +42,9 @@ include('layout/nav.php');
               <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Buscar y seleccionar cliente</label>
+                        <label>Buscar y seleccionar empleado</label>
                         <select class="form-control selectCliente" id="lista2" name="lista2">
-                        <option value="0">Seleccionar cliente</option>
+                        <option value="0">Seleccionar empleado</option>
                           
                         </select>
                       </div>
@@ -55,8 +55,8 @@ include('layout/nav.php');
                       <div class="form-group">
                         <label>Filtro de búsqueda</label>
                         <select class="form-control" name="filtro" id="filtro">
-                          <option value="0">Todos los registros hasta la fecha</option>
-                          <option value="1">Por cliente</option>
+                          <option value="0">Por empleado</option>
+                          <option value="1">Dependencia</option>
                         </select>
                       </div>
                     </div>
@@ -77,40 +77,68 @@ include('layout/nav.php');
                   <th>ID</th>
                   <th>Nombre</th>
                   <th>Cargo</th>
+                  <th>Dependencia</th>
                   <th>Mes</th>
                   <th>Año</th>
-                  <th>Salario</th>
-                  <th>Bonificacion</th>
-                  <th>Otros</th>
-                  <th>Igss</th>
-                  <th>Plan</th>
-                  <th>Fianza</th>
-                  <th>Judicial</th>
-                  <th>Timbre</th>
-                  <th>Dietas</th>
-                  <th>Acciones</th>
+                  <th>Forma de pago</th>
+                  <th>Descripcion</th>
+                  <th>Estado</th>
                   </tr>
                   </thead>
                   <tbody>
-                
+                  <?php
+                   
+                   $pago = new Pago();
+                   $resultado = $pago->MostrarPagos();
+
+                   for($i=0;  $i<sizeof($resultado); $i++){
+
+                    $id = $resultado[$i]->getIdpago();
+                    $nombre =  $resultado[$i]->getNombres();
+                    $apellido =  $resultado[$i]->getApellido();
+                    $completo = $nombre.' '.$apellido;
+                    $cargo = $resultado[$i]->getCargo();
+                    $dependencia =  $resultado[$i]->getDependencia();
+                    $mes =  $resultado[$i]->getMes();
+                    $anio = $resultado[$i]->getAnio();
+                    $forma = $resultado[$i]->getForma();
+                    $descripcion  = $resultado[$i]->getDescripcion();
+                    $estado = $resultado[$i]->getEstado();
+
+                    echo "<tr>";
+                    
+                    echo "<td>$id</td>
+                          <td>$completo</td>
+                          <td>$cargo</td>
+                          <td>$dependencia</td>
+                          <td>$mes</td>
+                          <td>$anio</td>
+                          <td>$forma</td>
+                          <td>$descripcion</td>
+                          ";
+                    
+                          if($estado == 1){
+                            echo "<td><h4><span class='badge bg-success'>Pagado</span></h4></td>";
+                          }else{
+                            echo "<td><h4><span class='badge bg-success'>No pagado</span></h4></td>";
+                          }
+
+                    echo "</tr>";
+                   }
+
+                  ?>
                   </tbody>
                   <tfoot>
                   <tr>
                   <th>ID</th>
                   <th>Nombre</th>
                   <th>Cargo</th>
+                  <th>Dependencia</th>
                   <th>Mes</th>
                   <th>Año</th>
-                  <th>Salario</th>
-                  <th>Bonificacion</th>
-                  <th>Otros</th>
-                  <th>Igss</th>
-                  <th>Plan</th>
-                  <th>Fianza</th>
-                  <th>Judicial</th>
-                  <th>Timbre</th>
-                  <th>Dietas</th>
-                  <th>Acciones</th>
+                  <th>Forma de pago</th>
+                  <th>Descripcion</th>
+                  <th>Estado</th>
                   </tr>
                   </tfoot>
                 </table>
