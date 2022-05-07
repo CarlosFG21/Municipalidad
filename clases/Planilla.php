@@ -497,6 +497,35 @@ class Planilla{
 
     }
 
+    public function mostraPlanillaPago($idplanilla){
+
+        //instanciamos la clase planilla
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //creamos una variable de tipo planilla
+        $arraPlanillapago = new Planilla();
+
+        $sql = "Select salario_pago,isr_dieta,ingreso_total,total_descuento,sueldo_recibido from planilla where id_planilla ='".$idplanilla."'";
+
+        $resultado = mysqli_query($conexion->db,$sql);
+
+        while($fila = mysqli_fetch_array($resultado)){
+
+            $arraPlanillapago->setSalario($fila[0]);
+            $arraPlanillapago->setDietapp($fila[1]);
+            $arraPlanillapago->setIngresot($fila[2]);
+            $arraPlanillapago->setTotald($fila[3]);
+            $arraPlanillapago->setSarioreci($fila[4]);
+
+
+        }
+
+        $conexion->desconectar();
+
+        return $arraPlanillapago;
+    }
+
     
 
 }
