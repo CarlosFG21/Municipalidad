@@ -99,6 +99,7 @@ include('layout/nav.php');
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
                   <th>Estado</th>
+                  <th>Acciones</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -138,6 +139,14 @@ include('layout/nav.php');
                           }else{
                             echo "<td><h4><span class='badge bg-success'>No pagado</span></h4></td>";
                           }
+                          echo "<td>
+                               <a type='submit' href='pago_editar.php?id=$id' class='btn btn-warning'>
+                              <i class='fa fa-edit'></i>
+                              </a>"; 
+
+                          echo "<a type='submit' href='pago_vista.php?id=$id'class='btn bg-gradient-primary'>
+                                <i class='fas fa-eye'></i> 
+                                </a></td>";
 
                     echo "</tr>";
                    }
@@ -155,6 +164,7 @@ include('layout/nav.php');
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
                   <th>Estado</th>
+                  <th>Acciones</th>
                   </tr>
                   </tfoot>
                 </table>

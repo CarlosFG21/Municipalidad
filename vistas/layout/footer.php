@@ -82,6 +82,8 @@
 <script src="../js/observacion_eliminar.js"></script>
 <script src="../js/devolver_observacion.js"></script>
 <script src="../js/mensaje_editar_observacion.js"></script>
+<script src="../js/mensaje_guardar_pago.js"></script>
+<script src="../js/mensaje_editar_pago.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({

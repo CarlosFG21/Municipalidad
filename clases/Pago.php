@@ -19,6 +19,7 @@ class Pago{
     //planilla
     public $mes;
     public $anio;
+    public $sueldo;
 
 
     //----------------------------------------------------------------------------------------------------------------
@@ -138,6 +139,14 @@ class Pago{
 
      public function setAnio($anio_p){
         $this->anio =  $anio_p;
+     }
+
+     public function getSueldo(){
+         return $this->sueldo;
+     }
+
+     public function setSueldo($sueldo_p){
+         $this->sueldo = $sueldo_p;
      }
 
      //Funcion guardar pago
@@ -287,6 +296,60 @@ class Pago{
          //nos desconectamos de la base de datos
          $conexion->desconectar();
          return $arrayPagos; 
+    }
+
+    //funcion vista pagos
+    public function verPago($idpago){
+        //instanciamos con la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la funcion conectar
+        $conexion->conectar();
+        //declaramos una variable de tipo pago
+        $arrayPago = new Pago();
+        //realizamos la consulta sql
+        $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado,planilla.sueldo_recibido,pago.fecha_commit from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia where pago.id_pago='".$idpago."'";
+        //efectuamos la consulta 
+        $resultado = mysqli_query($conexion->db,$sql);
+        //recorremos la consultala mediante un ciclo while
+        while($fila = mysqli_fetch_array($resultado)){
+
+            $arrayPago->setIdpago($fila[0]);
+            $arrayPago->setNombres($fila[1]);
+            $arrayPago->setApellido($fila[2]);
+            $arrayPago->setCargo($fila[3]);
+            $arrayPago->setDependencia($fila[4]);
+            $arrayPago->setMes($fila[5]);
+            $arrayPago->setAnio($fila[6]);
+            $arrayPago->setForma($fila[7]);
+            $arrayPago->setDescripcion($fila[8]);
+            $arrayPago->setEstado($fila[9]);
+            $arrayPago->setSueldo($fila[10]);
+            $arrayPago->setFecha($fila[11]);
+
+        }
+
+        //nos desconectamos de la base de datos
+        $conexion->desconectar();
+        return $arrayPago;
+    }
+
+    //funcion editar pago
+    public function editarPago($forma,$descripcion,$fecha,$id){
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamso a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //realizamos la consulta sql
+        $sql = "update pago set forma_pago=?, descripcion=?, fecha_commit=? where id_pago=?";
+        //preparamos la consulta
+        $ejecutar = $conexion->db->prepare($sql);
+        //agregamos la cantidad de caracteres
+        $ejecutar->bind_param('sssi',$forma,$descripcion,$fecha,$id);
+        //realizamos el execute
+        $ejecutar->execute();
+        //nos desconectamos de la base de datos
+        $conexion->desconectar();
+
     }
 
 }
