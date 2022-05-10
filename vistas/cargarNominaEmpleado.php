@@ -72,10 +72,8 @@
     </tr>
     </tfoot>
   </table>
+  
   <br>
-  <div class="">
-                  <a type="submit" class="btn btn-danger" href="">Generar pdf</a>
-                </div>
 </div>
 <!-- /.card-body -->
 </div>
