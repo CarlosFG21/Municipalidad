@@ -67,10 +67,7 @@ include("layout/nav.php");
                              
                              $nombres = $resultado[$i]->getNombre();
                              $apellidos = $resultado[$i]->getApellido();
-
-
                              echo "<option value='$idConsultado'>"."[". $nombres . " " . $apellidos . "]". "</option>";
-
                          }
                           
                         ?>  
@@ -100,6 +97,9 @@ include("layout/nav.php");
                 </div>
                 <div id="serviciosCliente"> 
                 <!--Aquí se recargan los datos del cliente-->                    
+                </div>
+                <div class="">
+                <button class="btn btn-danger" onclick="obtener()">Generar PDF</button>
                 </div> 
                 </div>  
                 </div> 
@@ -173,11 +173,19 @@ function recargarLista(){
 
 <script type="text/javascript">
 $(document).ready(function(){
-
-
     $('#lista1').change(function(){
      recargarLista();
     });
-
 });
+</script>
+
+<script>
+  function obtener(){
+      var estado = $("#lista1").val();
+      if (estado!=null) {
+        window.open("../reportes/nomina.php?invoice="+estado , '_blank');
+      }else{
+        alert("Seleccione un empleado");
+      }
+  }
 </script>

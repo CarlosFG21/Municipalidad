@@ -155,7 +155,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pago.php" class="nav-link">
+            <a href="reporte.php" class="nav-link">
               <i class="nav-icon fas fa-signal"></i>
               <p>
                 Reportes
