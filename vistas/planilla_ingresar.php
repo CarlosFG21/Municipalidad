@@ -50,8 +50,18 @@ include("layout/nav.php");
              <!-- <div class="form-group">
               <h4>Datos Laborales</h4>
               </div> -->
-              <!-- /.Validacion codigo php -->
-              <form role="form" method="POST" action="#" id="formdata">
+              <?php 
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'existe'){
+              ?>
+               <div class="alert alert-danger alert-dismissible col-sm-6">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <h5><i class="icon fas fa-exclamation-triangle"></i> Alerta!</h5>
+                  !La planilla generada el empleado ya existe.!
+                </div>
+              <?php
+                }
+              ?>
+              <form role="form" method="POST" action="../crud/ingresarPlanillaEspecifica.php" id="formdata">
                   <div class="row">
                     <div class="col-sm-4">
                       <!-- text input -->
@@ -108,7 +118,7 @@ include("layout/nav.php");
                       <label>Seleccione año de planilla</label>
                       <select class='form-control' name='anio' id='anio'>";
                       
-
+      
                         for($i=$year;$i>=1990;$i--) { 
                           echo "<option value='".$i."'>".$i."</option>";
                         }
@@ -130,7 +140,7 @@ include("layout/nav.php");
                 </div> 
                   
                 <div class="">
-                <input type="button" value="Guardar" class="btn btn-primary" name="btnGuardarPlanilla" id="btnGuardarPlanilla">
+                <input type="submit" value="Guardar" class="btn btn-primary" name="btnGuardarPlanilla" id="btnGuardarPlanilla" onclick="obtener()">
                   <a type="submit" class="btn btn-danger" href="planilla.php">Regresar</a>
                 </div>  
                 </div> 
@@ -219,4 +229,13 @@ $(document).ready(function(){
     });
 
 });
+</script>
+
+<script>
+  function obtener(){
+      var estado = $("#lista1").val();
+      if (estado==null) {
+        alert("Seleccione un empleado");
+      }
+  }
 </script>

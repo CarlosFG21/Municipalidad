@@ -35,27 +35,27 @@ $ingresot= $salario + $boni + $otros + $dietas;
 $totald =0;
 
 if($igsscheck == 1){
-$calculoi = $salario * 0.02;
+$calculoi = $salario * 0.0483;
 }else{
     $calculoi =0;
 }
 
 if($plan == 1){
-    $calculoplan = $salario * 0.025;
+    $calculoplan = $salario * 0.07;
     }else{
         $calculoplan =0;
 }
 
 if($fianza == 1){
-    $calculof = $salario * 0.04;
+    $calculof = $salario * 0.012;
     }else{
         $calculof  =0;
 }
 
 if($timbre == 1 && $isrdietad == 1){
-    $calculot = $dietas * 0.013;
+    $calculot = $dietas * 0.05;
     }else if($timbre== 1){
-        $calculot= $salario * 0.013;
+        $calculot= $salario * 0.03;
 }
 
 if($isrdietad==1){
