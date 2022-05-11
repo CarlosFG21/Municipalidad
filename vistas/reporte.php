@@ -44,13 +44,37 @@ include('layout/nav.php');
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
-                        <button type="button"> <img src="https://cdn-icons-png.flaticon.com/512/554/554795.png" height ="80" width="100" />Empleados Activos</button>
+                        <button type="button" onclick="window.open('../reportes/empleadosactivos.php',target='_blank')"> <img src="https://cdn-icons-png.flaticon.com/512/554/554795.png" height ="150" width="350" />Empleados Activos</button>
                         </div>
                     </div>
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
-                        <button type="button"> <img src="https://cdn-icons-png.flaticon.com/512/554/554795.png" height ="80" width="100" />Empleados Inactivos</button>
+                        <button type="button" onclick="window.open('../reportes/empleadosinactivos.php',target='_blank')"> <img src="https://cdn-icons-png.flaticon.com/512/554/554795.png" height ="150" width="333" />Empleados Inactivos</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <button type="button"  onclick="window.open('../reportes/dependenciaactiva.php',target='_blank')"> <img src="https://cdn-icons-png.flaticon.com/512/2332/2332199.png" height ="150" width="329" />Dependencias Activas</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <button type="button"  onclick="window.open('../reportes/dependenciainactiva.php',target='_blank')"> <img src="https://cdn-icons-png.flaticon.com/512/2332/2332199.png" height ="150" width="312" />Dependencias Inactivas</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <button type="button" onclick="window.open('../reportes/usuariosactivos.php',target='_blank')"> <img src="https://www.seekpng.com/png/full/202-2022198_icono-administrador-de-usuario-iconos-de-administrador-png.png" height ="150" width="365" />Usuarios Activos</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <button type="button" onclick="window.open('../reportes/usuariosinactivos.php',target='_blank')"> <img src="https://www.seekpng.com/png/full/202-2022198_icono-administrador-de-usuario-iconos-de-administrador-png.png" height ="150" width="350" />Usuarios Inactivos</button>
                         </div>
                     </div>
                     <!-- /.card -->

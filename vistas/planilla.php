@@ -59,21 +59,33 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
               <div class="row">
               <div class="col-sm-3">
                       <!-- text input -->
+              <div class="form-group">
+                        <label>Filtro de busqueda</label>
+                        <select class="form-control" name="filtro" id="filtro">
+                          <option value="">Seleccionar un tipo de filtro</option>
+                          <option value="0">Todos los pagos</option>
+                          <option value="1">Por empleado</option>
+                          
+                        </select>
+                      </div>
+              </div>
+              <div class="col-sm-3">
+                      <!-- text input -->
                       <div class="form-group">
                         <label>Mes de planilla</label>
                         <select class="form-control" name="mes" id="mes">
-                          <option value="1">Enero</option>
-                          <option value="2">Febrero</option>
-                          <option value="3">Marzo</option>
-                          <option value="4">Abril</option>
-                          <option value="5">Mayo</option>
-                          <option value="6">Junio</option>
-                          <option value="7">Julio</option>
-                          <option value="8">Agosto</option>
-                          <option value="9">Septiembre</option>
-                          <option value="10">Octubre</option>
-                          <option value="11">Noviembre</option>
-                          <option value="12">Diciembre</option>
+                          <option value="Enero">Enero</option>
+                          <option value="Febrero">Febrero</option>
+                          <option value="Marzo">Marzo</option>
+                          <option value="Abril">Abril</option>
+                          <option value="Mayo">Mayo</option>
+                          <option value="Junio">Junio</option>
+                          <option value="Julio">Julio</option>
+                          <option value="Agosto">Agosto</option>
+                          <option value="Septiembre">Septiembre</option>
+                          <option value="Octubre">Octubre</option>
+                          <option value="Noviembre">Noviembre</option>
+                          <option value="Diciembre">Diciembre</option>
                         </select>
                       </div>
                     </div>
@@ -116,29 +128,11 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                       </div>
                     </div>
 
-                    <div class="col-sm-3">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Renglon</label>
-                        <select class="form-control" name="cbRenglon" id="cbRenglon">
-                        <option value="" disabled="disabled" selected>Seleccione un renglon</option>
-                        <?php
-                        while($row = mysqli_fetch_array($renglon_resultado)){
-
-                       ?>
-                       <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-                       <?php }  ?>
-                        </select>
-                      </div>
-                    </div>
-                    
-                    
                     <!--aqui termina el row-->
                     </div>     <!--aqui termina el row-->
                 <div class="">
                 <a type="submit" class="btn btn btn-success" href="planilla_ingresar.php"> <i class="nav-icon fas fa-plus"> Ingresar planilla especifica</i></a>
                   <input type="submit" value="Generar planilla" class="btn btn-primary " name="btnGenerarPlanilla" id="btnGenerarPlanilla">
-                  <input type="submit" value="Exportar PDF" class="btn btn-primary " name="btnExportarPdf" id="btnExportarPdf">
                   <input type="submit" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
                 </div> 
 
