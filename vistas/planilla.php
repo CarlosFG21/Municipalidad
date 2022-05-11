@@ -56,6 +56,20 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
           
             <div class="card">
               <div class="card-header">
+              <?php 
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'guardar'){
+              ?>
+               <div class="alert alert-success col-sm-6" role="alert" >
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <h4 class="alert-heading">Guardado!</h4>
+               <p>La planilla de los empleados a sido generada.</p>
+               <hr>
+               <p class="mb-0">Dado el caso se encuentre un dato ya genera este no se volvera a registrar.</p>
+             </div>
+              <?php
+                }
+              ?>
+              <form role="form" method="post" action="../crud/ingresarPlanilla.php">
               <div class="row">
               <div class="col-sm-3">
                       <!-- text input -->
@@ -74,6 +88,7 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                       <div class="form-group">
                         <label>Mes de planilla</label>
                         <select class="form-control" name="mes" id="mes">
+                        <option value="" disabled="disabled" selected>Seleccione un mes</option>
                           <option value="Enero">Enero</option>
                           <option value="Febrero">Febrero</option>
                           <option value="Marzo">Marzo</option>
@@ -132,10 +147,10 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                     </div>     <!--aqui termina el row-->
                 <div class="">
                 <a type="submit" class="btn btn btn-success" href="planilla_ingresar.php"> <i class="nav-icon fas fa-plus"> Ingresar planilla especifica</i></a>
-                  <input type="submit" value="Generar planilla" class="btn btn-primary " name="btnGenerarPlanilla" id="btnGenerarPlanilla">
+                  <input type="submit" value="Generar planilla" class="btn btn-primary " name="btnGenerarPlanilla" id="btnGenerarPlanilla" onclick="obtener()">
                   <input type="submit" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
                 </div> 
-
+                </form>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -214,3 +229,13 @@ include('layout/footer.php');
       })
     });
 </script>
+
+<script>
+  function obtener(){
+      var estado = $("#mes").val();
+      if (estado==null) {
+        alert("Seleccione un mes");
+      }
+  }
+</script>
+

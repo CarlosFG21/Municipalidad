@@ -404,23 +404,40 @@ class Planilla{
 
     //--------------------------------------------------------------//---------------------------------------------------------------------------------
     //Funcion guardar planilla en especifico-------------------------
-    public function planillaEspecifico($idempleado,$mes,$anio,$salario,$bonificacion,$otros,$igss,$plan,$fianza,
-    $judicial,$timbre,$dietas,$isrdieta,$sisr,$intotal,$totald,$suedor,$usuario){
+    public function planillaMasiva($mes,$anio,$idusuario){
         //instanciamos la clase conexion 
         $conexion = new Conexion();
         //nos conectamos a la base de datos mediante la funcion conectar
         $conexion->conectar();
         //efectuamos el sql de guardado
-        $sql = "insert into planilla(id_empleado,mes,anio,salario_pago,bonificacion,otros,igss,plan,fianza,judicial,timbre,
-        dietas,isr_dieta,salario_isr,ingreso_total,total_descuento,sueldo_recibido,id_usuario)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "CALL generar(?,?,?)";
         //preparamos la consulta
         $ejecutar = $conexion->db->prepare($sql);
         //ingresamos la cantidad de caracteres
-        $ejecutar->bind_param('issddddddddddddddi',$idempleado,$mes,$anio,$salario,$bonificacion,$otros,$igss,$plan,$fianza,
-        $judicial,$timbre,$dietas,$isrdieta,$sisr,$intotal,$totald,$suedor,$usuario);
+        $ejecutar->bind_param('ssi',$mes,$anio,$idusuario);
         //realizamos el execute
         $ejecutar->execute();
         //nos desconectamos de la base de datos
+        $conexion->desconectar();
+
+    }
+
+    //funcion planilla especifica
+    public function planillaEspecifica($mes,$anio,$idusuario,$idempleado){
+
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //realizamos la consulta sql
+        $sql = "CALL generar_empleado(?,?,?,?)";
+        //preparamos la consulta
+        $ejecutar = $conexion->db->prepare($sql);
+        //ingresamos la cantidad de parametros
+        $ejecutar->bind_param('ssii',$mes,$anio,$idusuario,$idempleado);
+        //realizamos el execute
+        $ejecutar->execute();
+        //nos desconcetamos de la base de datos
         $conexion->desconectar();
 
     }
@@ -524,6 +541,33 @@ class Planilla{
         $conexion->desconectar();
 
         return $arraPlanillapago;
+    }
+
+    //function validar planilla especifica
+    public function validarPlanillaEspecifica($idempleado,$mes,$anio){
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //declaramos una funcion res que si esta 1 si existe y es 0 no existe
+        $res=0;
+        //realizamos la consulta sql
+        $sql = "select id_empleado,mes,anio from planilla where id_empleado='".$idempleado."'".
+        "and mes='".$mes."'". "and anio='".$anio."'";
+        //hacemos la consulta
+        $resultado = mysqli_query($conexion->db,$sql);
+        //recorremos la consulta mediante un ciclo while
+        while($fila = mysqli_fetch_array($resultado)){
+            if(strcmp($fila[0],$idempleado)===0 && strcmp($fila[1],$mes)===0 && strcmp($fila[2],$anio)===0){
+                $res=1;
+                break;
+            }
+
+        }
+
+        $conexion->desconectar();
+        return $res;
+
     }
 
     
