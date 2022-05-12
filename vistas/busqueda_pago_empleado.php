@@ -45,16 +45,53 @@ include("../db/Conexion.php");
                   $estado = $resultado[$i]->getEstado();
 
                   echo "<tr>";
-                  
-                  echo "<td>$id</td>
-                        <td>$completo</td>
-                        <td>$cargo</td>
-                        <td>$dependencia</td>
-                        <td>$mes</td>
-                        <td>$anio</td>
-                        <td>$forma</td>
-                        <td>$descripcion</td>
-                        ";
+                    
+                    echo "<td>$id</td>
+                          <td>$completo</td>
+                          <td>$cargo</td>
+                          <td>$dependencia</td>";
+                          if($mes==1){
+                            echo "<td>Enero</td>";
+                            }
+                            if($mes==2){
+                              echo "<td>Febrero</td>";
+                            }
+                            if($mes==3){
+                              echo "<td>Marzo</td>";
+                            }
+                            if($mes==4){
+                              echo "<td>Abril</td>";
+                            }
+                            if($mes==5){
+                              echo "<td>Mayo</td>";
+                            }
+                            if($mes==6){
+                              echo "<td>Junio</td>";
+                            }
+                            if($mes==7){
+                              echo "<td>Julio</td>";
+                            }
+                            if($mes==8){
+                              echo "<td>Agosto</td>";
+                            }
+                            if($mes==9){
+                              echo "<td>Septiembre</td>";
+                            }
+                            if($mes==10){
+                              echo "<td>Octubre</td>";
+                            }
+                            if($mes==11){
+                              echo "<td>Noviembre</td>";
+                            }
+                            if($mes==12){
+                              echo "<td>Diciembre</td>";
+                            }
+                          echo"
+                          <td>$anio</td>
+                          <td>$forma</td>
+                          <td>$descripcion</td>
+                          ";
+                    
                   
                         if($estado == 1){
                           echo "<td><h4><span class='badge bg-success'>Pagado</span></h4></td>";

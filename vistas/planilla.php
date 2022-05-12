@@ -77,7 +77,7 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                         <label>Filtro de busqueda</label>
                         <select class="form-control" name="filtro" id="filtro">
                           <option value="">Seleccionar un tipo de filtro</option>
-                          <option value="0">Todas las planillas</option>
+                          <option value="0">Por mes y fecha</option>
                           <option value="1">Por dependencia</option>
                           
                         </select>
@@ -148,11 +148,12 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                 <div class="">
                 <a type="submit" class="btn btn btn-success" href="planilla_ingresar.php"> <i class="nav-icon fas fa-plus"> Ingresar planilla especifica</i></a>
                   <input type="submit" value="Generar planilla" class="btn btn-primary " name="btnGenerarPlanilla" id="btnGenerarPlanilla" onclick="obtener()">
-                  <input type="submit" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
+                  <input type="button" value="Buscar" class="btn btn-primary " name="btnBuscar" id="btnBuscar">
                 </div> 
                 </form>
               </div>
               <!-- /.card-header -->
+              <div id="tablaresultados">
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -338,6 +339,7 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
               </div>
               <!-- /.card-body -->
             </div>
+            </div>
             <!-- /.card -->
           </div>
           <!-- /.col -->
@@ -375,5 +377,75 @@ include('layout/footer.php');
         alert("Seleccione un mes");
       }
   }
+</script>
+
+<script type="text/javascript">
+
+function filtrarporfecha(){
+  $.ajax({
+        type:"POST",
+        url:"busqueda_planilla_fecha.php?mes=" + $ ('#mes').val() +"&anio="+ $ ('#anio').val(),
+        //data:"id="+ $ ('#lista1').val(),
+        success:function(r){
+            $('#tablaresultados').html(r);
+        }
+    
+    });
+}
+
+function filtrarPorDependencia(){
+     
+    $.ajax({
+        type:"POST",
+        url:"busqueda_planilla_dependencia.php?mes=" + $ ('#mes').val() +"&anio="+ $ ('#anio').val() + "&idDep=" + $ ('#cbDependencia').val(),
+        //data:"id="+ $ ('#lista1').val(),
+        success:function(r){
+            $('#tablaresultados').html(r);
+        }
+    
+    });
+
+}
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+      
+        $('#btnBuscar').click(function(){
+        //Llamamos a la función
+        //alert("haz hecho click en el boton btnBuscar");
+        var idDep = document.getElementById('cbDependencia').value;
+        var mes = document.getElementById('mes').value;
+        var anio = document.getElementById('anio').value;
+        var filtro = document.getElementById('filtro').value;
+  
+       //------------Filtro todos------------------------------------------------------
+       if(filtro==0){
+        if(mes!=0 && anio!=0){
+          filtrarporfecha();
+        }else{
+          alert('Debes seleccionar una mes y anio');
+        }
+       }
+       //------------Filtro solo por cliente--------------------------
+      if(filtro==1){
+        
+        if(idDep!=0 && mes!=0 && anio!=0){
+        
+          filtrarPorDependencia();
+        
+        }else{
+          
+          alert('Debes seleccionar una dependencia, mes y anio');
+          
+        }
+      }
+
+        });
+
+    });
 </script>
 
