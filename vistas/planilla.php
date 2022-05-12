@@ -64,7 +64,7 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                <h4 class="alert-heading">Guardado!</h4>
                <p>La planilla de los empleados a sido generada.</p>
                <hr>
-               <p class="mb-0">Dado el caso se encuentre un dato ya genera este no se volvera a registrar.</p>
+               <p class="mb-0">Dado el caso se encuentre un dato ya generado este no se volvera a registrar.</p>
              </div>
               <?php
                 }
@@ -77,8 +77,8 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                         <label>Filtro de busqueda</label>
                         <select class="form-control" name="filtro" id="filtro">
                           <option value="">Seleccionar un tipo de filtro</option>
-                          <option value="0">Todos los pagos</option>
-                          <option value="1">Por empleado</option>
+                          <option value="0">Todas las planillas</option>
+                          <option value="1">Por dependencia</option>
                           
                         </select>
                       </div>
@@ -89,18 +89,18 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                         <label>Mes de planilla</label>
                         <select class="form-control" name="mes" id="mes">
                         <option value="" disabled="disabled" selected>Seleccione un mes</option>
-                          <option value="Enero">Enero</option>
-                          <option value="Febrero">Febrero</option>
-                          <option value="Marzo">Marzo</option>
-                          <option value="Abril">Abril</option>
-                          <option value="Mayo">Mayo</option>
-                          <option value="Junio">Junio</option>
-                          <option value="Julio">Julio</option>
-                          <option value="Agosto">Agosto</option>
-                          <option value="Septiembre">Septiembre</option>
-                          <option value="Octubre">Octubre</option>
-                          <option value="Noviembre">Noviembre</option>
-                          <option value="Diciembre">Diciembre</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre</option>
                         </select>
                       </div>
                     </div>
@@ -159,41 +159,179 @@ $renglon_resultado = mysqli_query($conexion->db,$renglon);
                   <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Cargo</th>
                   <th>Mes</th>
-                  <th>Año</th>
+                  <th>Anio</th>
+                  <th>Cargo</th>
+                  <th>Renglon</th>
+                  <th>Fecha I.</th>
+                  <th>Fecha E.</th>
+                  <th>Dpi</th>
+                  <th>No.Cuenta</th>
+                  <th>No.Igss</th>
+                  <th>Dependencia</th>
+                  <th>No.Exp</th>
                   <th>Salario</th>
-                  <th>Bonificacion</th>
+                  <th>Boni.</th>
                   <th>Otros</th>
+                  <th>Dietas</th>
+                  <th>Ingreso</th>
                   <th>Igss</th>
                   <th>Plan</th>
                   <th>Fianza</th>
                   <th>Judicial</th>
                   <th>Timbre</th>
-                  <th>Dietas</th>
-                  <th>Acciones</th>
+                  <th>Isr D.</th>
+                  <th>Isr S.</th>
+                  <th>Total D.</th>
+                  <th>Sueldo R.</th>
                   </tr>
                   </thead>
                   <tbody>
                 
+                  <?php
+                   
+                   $planilla = new Planilla();
+                   $resultado = $planilla->mostrarPlanitasTodas();
+
+                   for($i=0;  $i<sizeof($resultado); $i++){
+                    echo "<tr>"; 
+                    $id = $resultado[$i]->getidPlanill();
+                    $nombre = $resultado[$i]->getNombrep();
+                    $apellido = $resultado[$i]->getApellidop();
+                    $completo = $nombre.' '.$apellido;
+                    $mes = $resultado[$i]->getMes();
+                    $anio = $resultado[$i]->getAnio();
+                    $cargo =  $resultado[$i]->getNombrecarp();
+                    $renglon = $resultado[$i]->getNombrerep();
+                    $fechai = $resultado[$i]->getFechaIngreso();
+                    $fechae = $resultado[$i]->getFechaegreso();
+                    $dpi = $resultado[$i]->getDpip();
+                    $cuenta = $resultado[$i]->getNocuentap();
+                    $noigss =  $resultado[$i]->getNoigssp();
+                    $dependencia =  $resultado[$i]->getNombredep();
+                    $expediente = $resultado[$i]->getNoexpedientep();
+                    $salario = $resultado[$i]->getSalario();
+                    $boni = $resultado[$i]->getBonip();
+                    $otros = $resultado[$i]->getOtrosp();
+                    $dietas = $resultado[$i]->getDietapp();
+                    $ingreso = $resultado[$i]->getIngresot();
+                    $igss =  $resultado[$i]->getIgssp();
+                    $plan = $resultado[$i]->getPlanp();
+                    $fianza = $resultado[$i]->getFianzap();
+                    $judicial = $resultado[$i]->getJudicialp();
+                    $timbre = $resultado[$i]->getTimbrep();
+                    $isrdieta = $resultado[$i]->getDieta_isrp();
+                    $irsalario = $resultado[$i]->getSalario_isrp();
+                    $totald = $resultado[$i]->getTotald();
+                    $sueldo = $resultado[$i]->getSarioreci();
+          
+
+                    
+                    
+                    echo "<td>$id</td>
+                    <td>$completo</td>";
+
+
+                    if($mes==1){
+                    echo "<td>Enero</td>";
+                    }
+                    if($mes==2){
+                      echo "<td>Febrero</td>";
+                    }
+                    if($mes==3){
+                      echo "<td>Marzo</td>";
+                    }
+                    if($mes==4){
+                      echo "<td>Abril</td>";
+                    }
+                    if($mes==5){
+                      echo "<td>Mayo</td>";
+                    }
+                    if($mes==6){
+                      echo "<td>Junio</td>";
+                    }
+                    if($mes==7){
+                      echo "<td>Julio</td>";
+                    }
+                    if($mes==8){
+                      echo "<td>Agosto</td>";
+                    }
+                    if($mes==9){
+                      echo "<td>Septiembre</td>";
+                    }
+                    if($mes==10){
+                      echo "<td>Octubre</td>";
+                    }
+                    if($mes==11){
+                      echo "<td>Noviembre</td>";
+                    }
+                    if($mes==12){
+                      echo "<td>Diciembre</td>";
+                    }
+                    echo "
+                    <td>$anio</td>
+                    <td>$cargo</td>
+                    <td>$renglon</td>
+                    <td>$fechai</td>
+                    <td>$fechae</td>
+                    <td>$dpi</td>
+                    <td>$cuenta</td>
+                    <td>$noigss</td>
+                    <td>$dependencia</td>
+                    <td>$expediente</td>
+                    <td>$salario</td>
+                    <td>$boni</td>
+                    <td>$otros</td>
+                    <td>$dietas</td>
+                    <td>$ingreso</td>
+                    <td>$igss</td>
+                    <td>$plan</td>
+                    <td>$fianza</td>
+                    <td>$judicial</td>
+                    <td>$timbre</td>
+                    <td>$isrdieta</td>
+                    <td>$irsalario</td>
+                    <td>$totald</td>
+                    <td>$sueldo</td>
+                          
+                          ";
+                    
+                          
+
+                    echo "</tr>";
+                   }
+
+                  ?>
                   </tbody>
                   <tfoot>
                   <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Cargo</th>
                   <th>Mes</th>
-                  <th>Año</th>
+                  <th>Anio</th>
+                  <th>Cargo</th>
+                  <th>Renglon</th>
+                  <th>Fecha I.</th>
+                  <th>Fecha E.</th>
+                  <th>Dpi</th>
+                  <th>No.Cuenta</th>
+                  <th>No.Igss</th>
+                  <th>Dependencia</th>
+                  <th>No.Exp</th>
                   <th>Salario</th>
-                  <th>Bonificacion</th>
+                  <th>Boni.</th>
                   <th>Otros</th>
+                  <th>Dietas</th>
+                  <th>Ingreso</th>
                   <th>Igss</th>
                   <th>Plan</th>
                   <th>Fianza</th>
                   <th>Judicial</th>
                   <th>Timbre</th>
-                  <th>Dietas</th>
-                  <th>Acciones</th>
+                  <th>Isr D.</th>
+                  <th>Isr S.</th>
+                  <th>Total D.</th>
+                  <th>Sueldo R.</th>
                   </tr>
                   </tfoot>
                 </table>

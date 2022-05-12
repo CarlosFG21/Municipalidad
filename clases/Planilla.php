@@ -28,6 +28,7 @@ class Planilla{
     public $nombre_dependenciap;
     public $dietapp;
     public $fechaingreso;
+    public $fechaegreso;
     
 
     //Empleado variables
@@ -70,12 +71,13 @@ class Planilla{
     }
 
     //mes
-    public function setMes(){
+    public function getMes(){
         return $this->mes;
-    }
+   }
 
-    public function getMes($mes_p){
-         $this->mes =  $mes_p;
+    public function setMes($mes_p){
+        
+        $this->mes =  $mes_p;
     }
 
     //anio
@@ -277,6 +279,13 @@ class Planilla{
         $this->dietapp  =  $dietapp_p;
     }
 
+    public function getFechaegreso(){
+        return $this->fechaegreso;
+    }
+
+    public function setFechaegreso($egreso){
+        $this->fechaegreso = $egreso;
+    }
     
 
     //-------------------------
@@ -567,6 +576,65 @@ class Planilla{
 
         $conexion->desconectar();
         return $res;
+
+    }
+
+    //funcion mostrar todas
+    public function mostrarPlanitasTodas(){
+
+        //instanciamos la clase conexion
+        $conexion = new Conexion();
+        //nos conectamos a la base de datos mediante la funcion conectar
+        $conexion->conectar();
+        //declaramos una variable de tipo planilla
+        $arrayPlanilla = array();
+        //realizamos la sentencia sql 
+        $sql = "select planilla.id_planilla,empleado.nombres,empleado.apellidos,dependencia.id_dependencia,planilla.mes,planilla.anio,cargo.nombre,renglon.nombre,empleado.fecha_ingreso,empleado.fecha_egreso,empleado.dpi,empleado.no_cuenta,empleado.no_igss,dependencia.nombre,empleado.no_expediente,planilla.salario_pago,planilla.bonificacion,planilla.otros,planilla.isr_dieta,planilla.ingreso_total,planilla.igss,planilla.plan,planilla.fianza,planilla.judicial,planilla.timbre,planilla.dietas,planilla.salario_isr,planilla.total_descuento,planilla.sueldo_recibido from planilla INNER JOIN empleado on empleado.id_empleado = planilla.id_empleado INNER JOIN cargo on cargo.id_cargo = empleado.id_cargo INNER JOIN dependencia on dependencia.id_dependencia = cargo.id_dependencia INNER JOIN renglon on renglon.id_renglon = empleado.id_renglon";
+        //obtenemos los datos de la consulta
+        $resultado = mysqli_query($conexion->db,$sql);
+        //recorremos los datos obtenido
+        while($fila = mysqli_fetch_array($resultado)){
+            $datosPlanilla = new Planilla();
+
+            $datosPlanilla->setidPlanill($fila[0]);
+            $datosPlanilla->setNombrep($fila[1]);
+            $datosPlanilla->setApellidop($fila[2]);
+            $datosPlanilla->setidDependenciap($fila[3]);
+            $datosPlanilla->setMes($fila[4]);
+            $datosPlanilla->setAnio($fila[5]);
+            $datosPlanilla->setNombrecarp($fila[6]);
+            $datosPlanilla->setNombrerep($fila[7]);
+            $datosPlanilla->setFechaIngreso($fila[8]);
+            $datosPlanilla->setFechaegreso($fila[9]);
+            $datosPlanilla->setDpip($fila[10]);
+            $datosPlanilla->setNocuentap($fila[11]);
+            $datosPlanilla->setNoigssp($fila[12]);
+            $datosPlanilla->setNombredep($fila[13]);
+            $datosPlanilla->setNoexpedientep($fila[14]);
+            $datosPlanilla->setSalario($fila[15]);
+            $datosPlanilla->setBonip($fila[16]);
+            $datosPlanilla->setOtrosp($fila[17]);
+            $datosPlanilla->setDietapp($fila[18]);
+            $datosPlanilla->setIngresot($fila[19]);
+            $datosPlanilla->setIgssp($fila[20]);
+            $datosPlanilla->setPlanp($fila[21]);
+            $datosPlanilla->setFianzap($fila[22]);
+            $datosPlanilla->setJudicialp($fila[23]);
+            $datosPlanilla->setTimbrep($fila[24]);
+            $datosPlanilla->setDieta_isrp($fila[25]);
+            $datosPlanilla->setSalario_isrp($fila[26]);
+            $datosPlanilla->setTotald($fila[27]);
+            $datosPlanilla->setSarioreci($fila[28]);
+
+            array_push($arrayPlanilla, $datosPlanilla);
+
+        }
+
+        //nos desconectamos de la base de datos
+        $conexion->desconectar();
+
+        return $arrayPlanilla;
+
 
     }
 
