@@ -84,6 +84,14 @@
 <script src="../js/mensaje_editar_observacion.js"></script>
 <script src="../js/mensaje_guardar_pago.js"></script>
 <script src="../js/mensaje_editar_pago.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -109,6 +117,7 @@
                         "previous": "Anterior"
                     }
                 },
+                
     });
     $('#example2').DataTable({
       "paging": true,

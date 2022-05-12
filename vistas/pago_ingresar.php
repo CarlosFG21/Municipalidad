@@ -100,7 +100,7 @@ $empleados = mysqli_query($conexion->db,$sql);
                            $conexion->conectar();
                            echo "entro a municipio";
     
-                          $queryM = "SELECT id_planilla, CONCAT(mes,' ',anio) FROM planilla where id_empleado = '
+                          $queryM = "SELECT id_planilla, CONCAT(Mes(mes),' ',anio) FROM planilla where id_empleado = '
                           $id_empleado' ORDER BY mes ASC    ";
     
                           $ejecutar = mysqli_query($conexion->db, $queryM);

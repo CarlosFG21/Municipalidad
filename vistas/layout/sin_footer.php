@@ -74,6 +74,13 @@
 <script src="../js/observacion_eliminar.js"></script>
 <script src="../js/devolver_observacion.js"></script>
 <script src="../js/mensaje_editar_observacion.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -99,12 +106,21 @@
                         "previous": "Anterior"
                     }
                 },
+                
                 dom: 'Bfrtip',
             buttons: [
               { extend: 'copyHtml5', footer: true },
               { extend: 'excelHtml5', footer: true },
             ],
-                
+            /*"columnDefs": [
+            {
+                "targets": [ 3 ],
+                "visible": false
+            },{
+              "targets": [ 4 ],
+                "visible": false
+            }
+        ]*/
     });
     $('#example2').DataTable({
       "paging": true,
