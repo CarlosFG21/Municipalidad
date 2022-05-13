@@ -179,15 +179,15 @@
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(4,17,utf8_decode($timbre),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(114,8,utf8_decode('ISR Salario: '),0,0,'R',0);
+    $pdf->Cell(114,8,utf8_decode('Isr Salario: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(-5,17,utf8_decode($salarioisr),0,0,'C',0);
     $pdf->Ln(11); 
     //deitas
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(25,8, utf8_decode('ISR Dietas: '),0,0,'R',0);
+    $pdf->Cell(25,8, utf8_decode('Isr Dietas: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(4,17,utf8_decode($isrdieta),0,0,'C',0);
+    $pdf->Cell(4,17,utf8_decode($dietas),0,0,'C',0);
     $pdf->Ln(14); 
     $pdf->Cell(190,1,'',0,1,'C',1);
     $pdf->Ln(12);

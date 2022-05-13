@@ -132,7 +132,7 @@ $empleados = mysqli_query($conexion->db,$sql);
                   <!-- text input -->
                   <div class="form-group">
                     <label>Descripción</label>
-                    <input type="text" class="form-control" placeholder="Descripcion" minlength="4" maxlength="40" required name="descripcion" id="descripcion" pattern="^[a-zA-Záéíóú]{1,30}">
+                    <input type="text" class="form-control" placeholder="Descripcion" minlength="4" maxlength="40" required name="descripcion" id="descripcion" pattern="^[a-zA-Záéíóú ]{1,30}">
                   </div>
                 </div>              
                      <div id="select2lista" class="row"> 

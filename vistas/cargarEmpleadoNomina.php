@@ -299,7 +299,7 @@
                         <label>Dietas</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='$dietas' minlength='4' maxlength='8' required name='dietas' id='dietas' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='$isrdieta' minlength='4' maxlength='8' required name='dietas' id='dietas' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
                         ?>
                       </div>
                     </div>
@@ -319,7 +319,7 @@
                         <label>Isr dietas</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='$isrdieta' minlength='4' maxlength='8' required name='isr_dieta' id='isr_dietas' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='$dietas' minlength='4' maxlength='8' required name='isr_dieta' id='isr_dietas' disabled pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
                         ?>
                       </div>
                     </div>
