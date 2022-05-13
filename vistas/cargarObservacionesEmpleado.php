@@ -141,6 +141,10 @@ if(respuesta==true){
                     <i class='fa fa-share-square'></i>
                     </a>"; 
                     }
+                    echo"<a type='submit' class='btn btn-default' id='' href='../reportes/acta_vista.php?id=$id' target='_blank'>
+                    <i class='fa fa-print'></i>
+                    </a>";
+
                     echo"<a type='submit' href='detalle_observacion_vista.php?id=$id&idempleadon=$idEmpleadoNuevaObservacion'class='btn bg-gradient-primary'>
                     <i class='fas fa-eye'></i> 
                     </a></td>";

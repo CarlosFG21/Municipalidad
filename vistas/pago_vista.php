@@ -104,8 +104,31 @@ include("layout/nav.php");
                         <label>Mes de pago</label>
                         
                         <?php
-                        //------------Imprimimos el permiso
-                        echo "<input type='text' class='form-control' placeholder='$mes' disabled>";
+                        if($mes == 1){
+                          echo "<input type='text' class='form-control' placeholder='Enero' disabled>";
+                        }elseif($mes == 2){
+                          echo "<input type='text' class='form-control' placeholder='Febrero' disabled>";
+                        }elseif($mes == 3){
+                          echo "<input type='text' class='form-control' placeholder='Marzo' disabled>";
+                        }elseif($mes == 4){
+                          echo "<input type='text' class='form-control' placeholder='Abril' disabled>";
+                        }elseif($mes == 5){
+                          echo "<input type='text' class='form-control' placeholder='Mayo' disabled>";
+                        }elseif($mes == 6){
+                          echo "<input type='text' class='form-control' placeholder='Junio' disabled>";
+                        }elseif($mes == 7){
+                          echo "<input type='text' class='form-control' placeholder='Julio' disabled>";
+                        }elseif($mes == 8){
+                          echo "<input type='text' class='form-control' placeholder='Agosto' disabled>";
+                        }elseif($mes == 9){
+                          echo "<input type='text' class='form-control' placeholder='Septiembre' disabled>";
+                        }elseif($mes == 10){
+                          echo "<input type='text' class='form-control' placeholder='Octubre' disabled>";
+                        }elseif($mes == 11){
+                          echo "<input type='text' class='form-control' placeholder='Noviembre' disabled>";
+                        }elseif($mes == 12){
+                          echo "<input type='text' class='form-control' placeholder='Diciembre' disabled>";
+                        }   
                         ?>
                       </div>
                     </div>
