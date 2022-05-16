@@ -64,7 +64,7 @@ include("layout/nav.php");
                         <?php
                         echo "
                         <input type='text' class='form-control' placeholder='codigo' value='$codigo' name='codigo' id='codigo'
-                        pattern='^[a-zA-Záéíóú0-9]{1,30}' required minlength='3' maxlength='17'>";
+                        pattern='^[0-9.- ]{1,30}' required minlength='3' maxlength='17'>";
                         ?>
                       </div>
                     </div>

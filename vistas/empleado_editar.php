@@ -234,7 +234,7 @@ $conexion->conectar();
                         <label>Cuenta bancaria</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='21' maxlength='21' required value='$cuenta' name='cuenta' id='cuenta' pattern='^[a-zA-Záéíóú0-9]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='3' maxlength='21' required value='$cuenta' name='cuenta' id='cuenta' pattern='^[a-zA-Záéíóú0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>

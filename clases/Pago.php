@@ -20,6 +20,7 @@ class Pago{
     public $mes;
     public $anio;
     public $sueldo;
+    public $salario;
 
 
     //----------------------------------------------------------------------------------------------------------------
@@ -149,6 +150,14 @@ class Pago{
          $this->sueldo = $sueldo_p;
      }
 
+     public function getSalario(){
+         return $this->salario;
+     }
+
+     public function setSalario($salario_p){
+         $this->salario =  $salario_p;
+     }
+
      //Funcion guardar pago
      public function Guardarpago($forma,$descripcion,$id_planilla,$id_usuario){
          //se efectua la instancia de la base de datos
@@ -202,7 +211,7 @@ class Pago{
          //declaramos una variable de tipo array
          $arrayPagos = array();
          //efectuamos el sql para obtener los datos 
-         $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia";
+         $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado,planilla.salario_pago,planilla.sueldo_recibido from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia";
          //realizamos la consulta del sql consultado
          $resultado = mysqli_query($conexion->db,$sql);
           //recorremos la consulta mediante un ciclo while
@@ -219,6 +228,8 @@ class Pago{
               $arrayIndex->setForma($fila[7]);
               $arrayIndex->setDescripcion($fila[8]);
               $arrayIndex->setEstado($fila[9]);
+              $arrayIndex->setSalario($fila[10]);
+              $arrayIndex->setSueldo($fila[11]);
 
               array_push($arrayPagos, $arrayIndex);
           }
@@ -237,7 +248,7 @@ class Pago{
         //declaramos una variable de tipo array
         $arrayPagos = array();
         //efectuamos el sql para obtener los datos 
-        $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia where empleado.id_empleado='".$idempleado."'";
+        $sql = "select pago.id_pago,empleado.nombres,empleado.apellidos,cargo.nombre,dependencia.nombre,planilla.mes,planilla.anio,pago.forma_pago,pago.descripcion,pago.estado,planilla.salario_pago,planilla.sueldo_recibido from pago INNER JOIN planilla on pago.id_planilla = planilla.id_planilla INNER JOIN empleado on planilla.id_empleado = empleado.id_empleado INNER JOIN cargo on empleado.id_cargo = cargo.id_cargo INNER JOIN dependencia on cargo.id_dependencia = dependencia.id_dependencia where empleado.id_empleado='".$idempleado."'";
         //realizamos la consulta del sql consultado
         $resultado = mysqli_query($conexion->db,$sql);
          //recorremos la consulta mediante un ciclo while
@@ -254,6 +265,8 @@ class Pago{
              $arrayIndex->setForma($fila[7]);
              $arrayIndex->setDescripcion($fila[8]);
              $arrayIndex->setEstado($fila[9]);
+              $arrayIndex->setSalario($fila[10]);
+             $arrayIndex->setSueldo($fila[11]);
 
              array_push($arrayPagos, $arrayIndex);
          }
