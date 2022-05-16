@@ -1,3 +1,4 @@
+
 <?php
 
     require('formato.php');
@@ -67,44 +68,44 @@
     $pdf->Ln(2);
     $pdf->Cell(20,6, utf8_decode('Nombre: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(28,15, utf8_decode($nombre." ".$apellido),0,0,'C',0);
+    $pdf->Cell(56,6, utf8_decode($nombre." ".$apellido),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(83,6, utf8_decode('Telefono: '),0,0,'R',0);
+    $pdf->Cell(55,6, utf8_decode('Telefono: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(7,15,utf8_decode($telefono),0,0,'C',0); 
+    $pdf->Cell(18,6,utf8_decode($telefono),0,0,'C',0); 
     $pdf->Ln(10);
     //DPI
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(11,8, utf8_decode('Dpi: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(19,15,utf8_decode($dpi),0,0,'C',0);
+    $pdf->Cell(29,8,utf8_decode($dpi),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(99,8, utf8_decode('No igss: '),0,0,'R',0);
+    $pdf->Cell(89,8, utf8_decode('No.igss: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(7,15,utf8_decode($figss),0,0,'C',0);
+    $pdf->Cell(20,8,utf8_decode($figss),0,0,'C',0);
     $pdf->Ln(10);
     //Nit
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(10,8, utf8_decode('Nit: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(17,17,utf8_decode($nit),0,0,'C',0);
+    $pdf->Cell(17,8,utf8_decode($nit),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(128,8, utf8_decode('No. Cuenta Bancaria: '),0,0,'R',0);
+    $pdf->Cell(108,8, utf8_decode('No.Cuenta: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-44,17,utf8_decode($cuenta),0,0,'C',0);
+    $pdf->Cell(26,8,utf8_decode($cuenta),0,0,'C',0);
     $pdf->Ln(10);
     //Fecha Nacimiento
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(41,8, utf8_decode('Fecha Nacimiento: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-32,17,utf8_decode($fechan),0,0,'C',0);
+    $pdf->Cell(20,8,utf8_decode($fechan),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(119,8, utf8_decode('Estado: '),0,0,'R',0);
+    $pdf->Cell(67,8, utf8_decode('Estado: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
     if ($estado==1) {
-        $pdf->Cell(8,17,utf8_decode('Activo'),0,0,'C',0);    
+        $pdf->Cell(9,8,utf8_decode('Activo'),0,0,'C',0);    
     }else{
-        $pdf->Cell(8,17,utf8_decode('Inactivo'),0,0,'C',0);
+        $pdf->Cell(9,8,utf8_decode('Inactivo'),0,0,'C',0);
     }
     $pdf->Ln(18);
     //Linea intermedia
@@ -117,77 +118,77 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(21,8, utf8_decode('Renglon: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(5,17,utf8_decode($renglon),0,0,'C',0);
+    $pdf->Cell(5,8,utf8_decode($renglon),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(112,8, utf8_decode('Dependecia: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(15,17,utf8_decode($dependencia),0,0,'C',0);
-    $pdf->Ln(11);
+    $pdf->MultiCell(55,8,utf8_decode($dependencia),0,'J');
+    $pdf->Ln(4);
     //Cargo
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(16,8, utf8_decode('Cargo: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(10,17,utf8_decode($cargo),0,0,'C',0);
+    $pdf->Cell(50,8,utf8_decode($cargo),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(117,8,utf8_decode('Fecha ingreso: '),0,0,'R',0);
+    $pdf->Cell(76,8,utf8_decode('Fecha ingreso: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-5,17,utf8_decode($fechaingreso),0,0,'C',0);
+    $pdf->Cell(20,8,utf8_decode($fechaingreso),0,0,'C',0);
     $pdf->Ln(11); 
     //forma de pago
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(34,8, utf8_decode('Forma de pago: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-27,17,utf8_decode($forma),0,0,'C',0);
+    $pdf->Cell(33,8,utf8_decode($forma),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(121,8,utf8_decode('Salario: '),0,0,'R',0);
+    $pdf->Cell(61,8,utf8_decode('Salario: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(18,17,utf8_decode($salario),0,0,'C',0);
+    $pdf->Cell(16,8,utf8_decode($salario),0,0,'C',0);
     $pdf->Ln(11);
     //Bonificacion
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(29,8, utf8_decode('Bonificación: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-20,17,utf8_decode($bonificacion),0,0,'C',0);
+    $pdf->Cell(13,8,utf8_decode($bonificacion),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(116,8,utf8_decode('Otros: '),0,0,'R',0);
+    $pdf->Cell(83,8,utf8_decode('Otros: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(16,17,utf8_decode($otro),0,0,'C',0);
+    $pdf->Cell(16,8,utf8_decode($otro),0,0,'C',0);
     $pdf->Ln(11); 
     //IGSS
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(12,8, utf8_decode('Igss: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(15,17,utf8_decode($igss),0,0,'C',0);
+    $pdf->Cell(11,8,utf8_decode($igss),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(96,8,utf8_decode('Plan: '),0,0,'R',0);
+    $pdf->Cell(100,8,utf8_decode('Plan: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(25,17,utf8_decode($plan),0,0,'C',0);
+    $pdf->Cell(18,8,utf8_decode($plan),0,0,'C',0);
     $pdf->Ln(11); 
     ///Fianza
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(17,8, utf8_decode('Fianza: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(6,17,utf8_decode($fianza),0,0,'C',0);
+    $pdf->Cell(12,8,utf8_decode($fianza),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(106,8,utf8_decode('Judicial: '),0,0,'R',0);
+    $pdf->Cell(101,8,utf8_decode('Judicial: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(10,17,utf8_decode($judicial),0,0,'C',0);
+    $pdf->Cell(10,8,utf8_decode($judicial),0,0,'C',0);
     $pdf->Ln(11); 
     //Tibre
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(18,8, utf8_decode('Timbre: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(4,17,utf8_decode($timbre),0,0,'C',0);
+    $pdf->Cell(10,8,utf8_decode($timbre),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(114,8,utf8_decode('Isr Salario: '),0,0,'R',0);
+    $pdf->Cell(107,8,utf8_decode('Isr Salario: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(-5,17,utf8_decode($salarioisr),0,0,'C',0);
+    $pdf->Cell(10,8,utf8_decode($salarioisr),0,0,'C',0);
     $pdf->Ln(11); 
     //deitas
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(25,8, utf8_decode('Isr Dietas: '),0,0,'R',0);
+    $pdf->Cell(23,8, utf8_decode('Isr Dietas: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(4,17,utf8_decode($dietas),0,0,'C',0);
+    $pdf->Cell(9,8,utf8_decode($dietas),0,0,'C',0);
     $pdf->Ln(14); 
     $pdf->Cell(190,1,'',0,1,'C',1);
     $pdf->Ln(12);
@@ -197,7 +198,8 @@
     $pdf->Ln(7);
     $pdf->SetFillColor(225, 225, 225);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190,6,utf8_decode('Descripción'),1,0,'C',1);
+    $pdf->Cell(20,6,utf8_decode('No.'),1,0,'C',1);
+    $pdf->Cell(170,6,utf8_decode('Descripción'),1,0,'C',1);
     $pdf->Ln(12);
     //descripcion
     $pdf->SetFont('Arial','',12);
@@ -205,7 +207,9 @@
     $resultado =  $observacion->obtenerObservacionEmpleado($id);
     for($i=0; $i<sizeof($resultado); $i++){
         $descripcion = $resultado[$i]->getDescripcion();
-        $pdf->Cell(1,2,utf8_decode($descripcion),0,0,'L',0);
+        $id =  $resultado[$i]->getidObservacion();
+        $pdf->Cell(15,2,$id,0,0,'C');
+        $pdf->Cell(55,2,utf8_decode($descripcion),0, 1, 'C');
         $pdf->Ln(8);
     }
     $pdf->Output();
