@@ -18,6 +18,8 @@ include("../db/Conexion.php");
                   <th>Año</th>
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
+                  <th>Salario</th>
+                  <th>Sueldo R.</th>
                   <th>Estado</th>
                   <th>Acciones</th>
                   </tr>
@@ -41,6 +43,8 @@ include("../db/Conexion.php");
                  $anio = $resultado[$i]->getAnio();
                  $forma = $resultado[$i]->getForma();
                  $descripcion  = $resultado[$i]->getDescripcion();
+                 $salario = $resultado[$i]->getSalario();
+                 $sueldo = $resultado[$i]->getSueldo();
                  $estado = $resultado[$i]->getEstado();
 
                  echo "<tr>";
@@ -89,6 +93,8 @@ include("../db/Conexion.php");
                           <td>$anio</td>
                           <td>$forma</td>
                           <td>$descripcion</td>
+                          <td>$salario</td>
+                          <td>$sueldo</td>
                           ";
                     
                  
@@ -122,6 +128,8 @@ include("../db/Conexion.php");
                   <th>Año</th>
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
+                  <th>Salario</th>
+                  <th>Sueldo R.</th>
                   <th>Estado</th>
                   <th>Acciones</th>
                   </tr>
@@ -133,6 +141,6 @@ include("../db/Conexion.php");
 
 <?php
 
-    include("layout/librerias_sin_footer.php");
+    include("layout/sin_footer.php");
 
 ?>

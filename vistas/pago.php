@@ -98,6 +98,8 @@ include('layout/nav.php');
                   <th>Año</th>
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
+                  <th>Salario</th>
+                  <th>Sueldo R.</th>
                   <th>Estado</th>
                   <th>Acciones</th>
                   </tr>
@@ -120,6 +122,8 @@ include('layout/nav.php');
                     $anio = $resultado[$i]->getAnio();
                     $forma = $resultado[$i]->getForma();
                     $descripcion  = $resultado[$i]->getDescripcion();
+                    $salario = $resultado[$i]->getSalario();
+                    $sueldo = $resultado[$i]->getSueldo();
                     $estado = $resultado[$i]->getEstado();
 
                     echo "<tr>";
@@ -168,6 +172,8 @@ include('layout/nav.php');
                           <td>$anio</td>
                           <td>$forma</td>
                           <td>$descripcion</td>
+                          <td>$salario</td>
+                          <td>$sueldo</td>
                           ";
                     
                           if($estado == 1){
@@ -199,6 +205,8 @@ include('layout/nav.php');
                   <th>Año</th>
                   <th>Forma de pago</th>
                   <th>Descripcion</th>
+                  <th>Salario</th>
+                  <th>Sueldo R.</th>
                   <th>Estado</th>
                   <th>Acciones</th>
                   </tr>

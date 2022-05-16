@@ -62,7 +62,7 @@ include("layout/nav.php");
                       <!-- text input -->
                       <div class="form-group">
                         <label>Codigo</label>
-                        <input type="text" class="form-control" placeholder="Codigo" minlength="3" maxlength="17" required name="codigo" id="codigo" pattern="^[a-zA-Záéíóú0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Codigo" minlength="3" maxlength="17" required name="codigo" id="codigo" pattern="^[0-9.- ]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-6">
