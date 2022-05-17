@@ -82,6 +82,7 @@
         $usuario = $_SESSION['usuario'];
         $nombre = $usuario->getNombre();
         $apellido = $usuario->getApellido();
+        $rol = $usuario->getRol();
 
         echo"<a href='#' class='d-block'>$nombre $apellido</a>";
 
@@ -114,86 +115,136 @@
           
           
           <li class="nav-header">ACCIONES</li>
-          <li class="nav-item">
-            <a href="empleado.php" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
+          <?php
+          if($rol =="Administrador"){
+            echo "
+          <li class='nav-item'>
+            <a href='empleado.php' class='nav-link'>
+              <i class='nav-icon fas fa-user-tie'></i>
               <p>
                 Empleados
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="observacion.php?id=0" class="nav-link">
-              <i class="nav-icon fa fa-eye"></i>
+          </li>";
+        }
+          ?>
+          <?php
+          if($rol == "Administrador"){
+          echo "
+          <li class='nav-item'>
+            <a href='observacion.php?id=0' class='nav-link'>
+              <i class='nav-icon fa fa-eye'></i>
               <p>
                 Observaciones
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="nomina.php" class="nav-link">
-              <i class="nav-icon fas fa-clipboard"></i>
+          </li>";
+          }
+          ?>
+          <?php
+          if($rol == "Administrador" || $rol == "Usuario"){
+          echo "
+          <li class='nav-item'>
+            <a href='nomina.php' class='nav-link'>
+              <i class='nav-icon fas fa-clipboard'></i>
               <p>
                 Nominas
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="planilla.php" class="nav-link">
-              <i class="nav-icon fas fa-folder-open"></i>
+          </li>";
+          }
+          ?>
+          <?php
+          if($rol == "Administrador"){
+          echo "
+          <li class='nav-item'>
+            <a href='planilla.php' class='nav-link'>
+              <i class='nav-icon fas fa-folder-open'></i>
               <p>
                 Planilla
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="pago.php" class="nav-link">
-              <i class="nav-icon fab fa-paypal"></i>
+          </li>";
+          }
+          ?>
+          <?php
+          if($rol == "Administrador"){
+          echo "
+          <li class='nav-item'>
+            <a href='pago.php' class='nav-link'>
+              <i class='nav-icon fab fa-paypal'></i>
               <p>
                 Pagos
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="reporte.php" class="nav-link">
-              <i class="nav-icon fas fa-signal"></i>
+          </li>";
+          }
+          ?>
+          <?php
+           if($rol == "Administrador" || $rol == "Usuario"){
+          echo "
+          <li class='nav-item'>
+            <a href='reporte.php' class='nav-link'>
+              <i class='nav-icon fas fa-signal'></i>
               <p>
                 Reportes
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="renglon.php" class="nav-link">
-              <i class="nav-icon fas fa-clone"></i>
+          </li>";
+           }
+          ?>
+          <?php
+           if($rol == "Administrador" || $rol == "Usuario"){
+          echo "
+          <li class='nav-item'>
+            <a href='renglon.php' class='nav-link'>
+              <i class='nav-icon fas fa-clone'></i>
               <p>
                 Renglones
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="dependencia.php" class="nav-link">
-              <i class="nav-icon fas fa-university"></i>
+          </li>";
+           }
+          ?>
+          <?php
+           if($rol == "Administrador" || $rol == "Usuario"){
+             echo "
+          <li class='nav-item'>
+            <a href='dependencia.php' class='nav-link'>
+              <i class='nav-icon fas fa-university'></i>
               <p>
                 Dependencias
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="cargo.php" class="nav-link">
-              <i class="nav-icon fas fa-id-card-alt"></i>
+          </li>";
+           }
+          ?>
+          <?php
+           if($rol == "Administrador" || $rol == "Usuario"){
+          echo "
+          <li class='nav-item'>
+            <a href='cargo.php' class='nav-link'>
+              <i class='nav-icon fas fa-id-card-alt'></i>
               <p>
                 Cargos
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="usuario.php" class="nav-link">
-              <i class="nav-icon fas fa-user-alt"></i>
+          </li>";
+           }
+          ?>
+          <?php
+          if($rol =="Administrador"){
+            echo "
+          <li class='nav-item'>
+            <a href='usuario.php' class='nav-link'>
+              <i class='nav-icon fas fa-user-alt'></i>
               <p>
                 Usuarios
               </p>
             </a>
-          </li>
+          </li>";
+          }
+          ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
