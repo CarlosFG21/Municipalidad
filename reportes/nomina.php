@@ -68,11 +68,11 @@
     $pdf->Ln(2);
     $pdf->Cell(20,6, utf8_decode('Nombre: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(56,6, utf8_decode($nombre." ".$apellido),0,0,'C',0);
+    $pdf->Cell(65,6, utf8_decode($nombre." ".$apellido),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(55,6, utf8_decode('Telefono: '),0,0,'R',0);
+    $pdf->Cell(46,6, utf8_decode('Telefono: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(18,6,utf8_decode($telefono),0,0,'C',0); 
+    $pdf->Cell(15,6,utf8_decode($telefono),0,0,'C',0); 
     $pdf->Ln(10);
     //DPI
     $pdf->SetFont('Arial','B',12);
@@ -128,9 +128,9 @@
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(16,8, utf8_decode('Cargo: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(50,8,utf8_decode($cargo),0,0,'C',0);
+    $pdf->Cell(58,8,utf8_decode($cargo),0,0,'C',0);
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(76,8,utf8_decode('Fecha ingreso: '),0,0,'R',0);
+    $pdf->Cell(69,8,utf8_decode('Fecha ingreso: '),0,0,'R',0);
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(20,8,utf8_decode($fechaingreso),0,0,'C',0);
     $pdf->Ln(11); 
@@ -209,7 +209,7 @@
         $descripcion = $resultado[$i]->getDescripcion();
         $id =  $resultado[$i]->getidObservacion();
         $pdf->Cell(15,2,$id,0,0,'C');
-        $pdf->Cell(55,2,utf8_decode($descripcion),0, 1, 'C');
+        $pdf->Cell(75,2,utf8_decode($descripcion),0, 1, 'C');
         $pdf->Ln(8);
     }
     $pdf->Output();

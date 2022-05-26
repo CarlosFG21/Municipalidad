@@ -4,7 +4,7 @@ class Conexion{
 
     public $hostname="localhost";
     public $username="root";
-    public $password="";
+    public $password="cfranco1021$$";
     public $dbname="mydb";
     public $db;
 
