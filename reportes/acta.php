@@ -42,10 +42,10 @@
     $pdf->MultiCell(177,6, utf8_decode('Documento Administrativo') ,0,'J');
     $pdf->Ln(10);
     $pdf->SetFont('Arial','',12);
-    $pdf->MultiCell(177,6, utf8_decode('En la ciudad de Gualán, departamento de Zacapa, contituido en el edificio que ocupa la municipalidad de Gualán, se efectua el siguiente suscrito por parte de la Direccion Administrativa Financiera Integrada Municipal(DIFAM), haciendo constar que el empleado '.utf8_decode($nombre.' '.$apellido).' ').utf8_decode('se le ingreso lo siguiente: ').utf8_decode($descripcion),0,'J');
+    $pdf->MultiCell(177,6, utf8_decode('En la ciudad de Gualán, departamento de Zacapa, contituido en el edificio que ocupa la municipalidad de Gualán, se efectua el siguiente suscrito por parte de la Dirección Administrativa Financiera Integrada Municipal(DAFIM), haciendo constar que el empleado(@) '.utf8_decode($nombre.' '.$apellido).' ').utf8_decode('se le ingreso lo siguiente: ').utf8_decode($descripcion),0,'J');
     $pdf->Ln(10);
     $pdf->SetFont('Arial','',12);
-    $pdf->MultiCell(177,6, utf8_decode('Apeticion de la direccion DIFAM se extiende el siguiente documento el cual contiene vigencia durante todo el proceso laboral del empleado, indicando de esta forma la observacion que se efectuo en dicho momento para la contencion y reguardo del historial observatico que contiene el empleado en base a sus actividades y cambios efectuados') ,0,'J');
+    $pdf->MultiCell(177,6, utf8_decode('Apetición de la dirección DAFIM se extiende el siguiente documento el cual contiene vigencia durante todo el proceso laboral del empleado, indicando de esta forma la observación que se efectúo en dicho momento para la contención y reguardo del historial observatico que contiene el empleado en base a sus actividades y cambios efectuados') ,0,'J');
     $pdf->Ln(50);
     
     $pdf->SetFont('Arial','',12);

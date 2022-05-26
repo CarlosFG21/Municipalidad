@@ -179,14 +179,14 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Cuenta bancaria</label>
-                        <input type="text" class="form-control" placeholder="Cuenta bancaria" minlength="3" maxlength="21" required name="cuenta" id="cuenta" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Cuenta bancaria" minlength="3" maxlength="21" required name="cuenta" id="cuenta" pattern="^[0-9._- ]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>No. Expediente</label>
-                        <input type="text" class="form-control" placeholder="Cuenta bancaria" minlength="5" maxlength="19" required name="no_expediente" id="no_expediente" pattern="^[a-zA-Záéíóú0-9.,_- ]{1,30}">
+                        <input type="text" class="form-control" placeholder="Cuenta bancaria" minlength="5" maxlength="19" required name="no_expediente" id="no_expediente" pattern="^[0-9._- ]{1,30}">
                       </div>
                     
                 </div> <!---terminacion del row --> 

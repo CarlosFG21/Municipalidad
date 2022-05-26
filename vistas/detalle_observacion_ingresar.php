@@ -87,7 +87,7 @@ $ejecutar = mysqli_query($conexion->db,$sql);
                       <div class="form-group">
                         <label>Ingrese una descripcion</label>
                         <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" id="descripcion"
-                        pattern="^[a-zA-Záéíóú ]{1,30}" required minlength="1" maxlength="250">
+                        pattern="^[a-zA-Záéíóú ]{1,30}" required minlength="3" maxlength="250">
                       </div>
                     </div>
                     <div class="col-sm-6">

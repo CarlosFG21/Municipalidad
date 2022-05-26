@@ -141,7 +141,7 @@ $conexion->conectar();
                         <label>Nit</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Nit' minlength='9' maxlength='9' value='$nit' required name='nit' id='nit' pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Nit' minlength='3' maxlength='9' value='$nit' required name='nit' id='nit' pattern='^[a-zA-Záéíóú0-9.,_- ]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -224,7 +224,7 @@ $conexion->conectar();
                         <label>Afiliacion igss</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Igss' minlength='9' maxlength='9' required value='$igss' name='igss' id='igss' pattern='^[a-zA-Záéíóú0-9]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Igss' minlength='9' maxlength='9' required value='$igss' name='igss' id='igss' pattern='^[0-9._- ]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -234,7 +234,7 @@ $conexion->conectar();
                         <label>Cuenta bancaria</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='3' maxlength='21' required value='$cuenta' name='cuenta' id='cuenta' pattern='^[a-zA-Záéíóú0-9]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='3' maxlength='21' required value='$cuenta' name='cuenta' id='cuenta' pattern='^[0-9._- ]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ $conexion->conectar();
                         <label>No. Expediente</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='5' maxlength='19' required value='$expediente' name='no_expediente' id='no_expediente' pattern='^[a-zA-Záéíóú0-9]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Cuenta bancaria' minlength='5' maxlength='19' required value='$expediente' name='no_expediente' id='no_expediente' pattern='^[0-9._- ]{1,30}'>";
                         ?>
                       </div>
                     </div>
@@ -384,7 +384,7 @@ $conexion->conectar();
                         <label>Salario</label>
                         <?php
                         echo "
-                        <input type='number' class='form-control' placeholder='Salario' minlength='3' maxlength='6'  value='$salario' name='salario' id='salario' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='number' class='form-control' placeholder='Salario' minlength='3' maxlength='6'  value='$salario' name='salario' id='salario' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -394,7 +394,7 @@ $conexion->conectar();
                         <label>Bonificacion</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Bonificacion' minlength='3' maxlength='3'  value='$boni' name='bonificacion' id='bonificacion' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Bonificacion' minlength='3' maxlength='3'  value='$boni' name='bonificacion' id='bonificacion' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -404,7 +404,7 @@ $conexion->conectar();
                         <label>Otros</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Otros' minlength='3' maxlength='6'  value='$otros' name='otros' id='otros' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Otros' minlength='3' maxlength='6'  value='$otros' name='otros' id='otros' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -441,7 +441,7 @@ $conexion->conectar();
                         <label>Judicial</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Judicial' minlength='2' maxlength='6' required value='$judicial' name='judicial' id='judicial' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Judicial' minlength='2' maxlength='6' required value='$judicial' name='judicial' id='judicial' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -451,7 +451,7 @@ $conexion->conectar();
                         <label>Isr salario</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Isr salario' minlength='3' maxlength='6' required value='$isr_s' name='isrsalario' id='isrsalario' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Isr salario' minlength='3' maxlength='6' required value='$isr_s' name='isrsalario' id='isrsalario' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
@@ -461,7 +461,7 @@ $conexion->conectar();
                         <label>Dietas</label>
                         <?php
                         echo "
-                        <input type='text' class='form-control' placeholder='Isa dietas' minlength='3' maxlength='6' required value='$dietas' name='dietas' id='dietas' pattern='^[a-zA-Záéíóú0-9.]{1,30}'>";
+                        <input type='text' class='form-control' placeholder='Isa dietas' minlength='3' maxlength='6' required value='$dietas' name='dietas' id='dietas' pattern='^[0-9]{1,30}'>";
                         ?>
                         </div>
                     </div>
