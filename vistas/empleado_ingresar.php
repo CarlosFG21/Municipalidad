@@ -266,7 +266,7 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Salario</label>
-                        <input type="text" class="form-control" placeholder="Salario" minlength="3" maxlength="6" name="salario" id="salario" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Salario" minlength="3" maxlength="10" name="salario" id="salario" pattern="^[0-9.,]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -280,7 +280,7 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Otros</label>
-                        <input type="text" class="form-control" placeholder="Otros" minlength="3" maxlength="6"  name="otros" id="otros" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Otros" minlength="3" maxlength="10"  name="otros" id="otros" pattern="^[0-9.,]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -314,21 +314,21 @@ $dependencia = mysqli_query($conexion->db,$sqld);
                       <!-- text input -->
                       <div class="form-group">
                         <label>Judicial</label>
-                        <input type="text" class="form-control" placeholder="Judicial" minlength="2" maxlength="6"  name="judicial" id="judicial" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Judicial" minlength="2" maxlength="8"  name="judicial" id="judicial" pattern="^[0-9.,]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Isr salario</label>
-                        <input type="text" class="form-control" placeholder="Isr salario" minlength="2" maxlength="6"  name="isrsalario" id="isrsalario" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Isr salario" minlength="2" maxlength="8"  name="isrsalario" id="isrsalario" pattern="^[0-9.,]{1,30}">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <!-- text input -->
                       <div class="form-group">
                         <label>Dietas</label>
-                        <input type="text" class="form-control" placeholder="Dietas" minlength="3" maxlength="6"  name="dietas" id="dietas" pattern="^[0-9]{1,30}">
+                        <input type="text" class="form-control" placeholder="Dietas" minlength="3" maxlength="10"  name="dietas" id="dietas" pattern="^[0-9.,]{1,30}">
                       </div>
                     </div>
                 </div> 
